@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "types": ["vitest/globals"]
+    // "baseUrl": "./",
+    // "paths": {
+    //   "@components/": ["./src/components/*"],
+    //   "@libs/": ["./src/libs/*"],
+    //   "@hooks/": ["./src/hooks/*"],
+    //   "@context/": ["./src/context/*"]
+    // }
+  },
+  "include": ["src", ".eslintrc.cjs", "env.d.ts", "test", "*.test.tsx"],
+  "exclude": ["node_modules", "dist"]
+}

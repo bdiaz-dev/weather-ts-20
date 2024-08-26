@@ -1,0 +1,320 @@
+.langSwitch {
+  margin-right: 30px;
+  width: 65px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.langSwitch[data-is-en="true"] {
+  justify-content: flex-start;
+  .langHandle {
+    background-image: url('../assets/eng.svg');
+    transition: background-image 0.2s;
+  }
+}
+
+.langHandle {
+  width: 35px;
+  height: 35px;
+  background-image: url('../assets/esp.svg');
+  background-size: cover;
+  border-radius: 5px;
+  transition: background-image 0.2s;
+}
+
+button {
+  @include hover-color($enfasis-text-color-dark);
+}
+
+#langButton, #formSendButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  @include transition(border-color);
+  @include hover-border-color($enfasis-text-color-dark);
+}
+
+#langButtonsContainer {
+  display: flex;
+  gap: 2px;
+  position: fixed;
+  right: 4px;
+  top: 4px;
+}
+
+#langButton {
+  padding: 3px 7px;
+  background-color: $lang-button-background-dark;
+}
+
+#cities {
+  list-style: none;
+  margin: 0 20px 5px 20px;
+  padding: 0;
+  text-align: start;
+
+  button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: normal;
+    font-family: inherit;
+    cursor: pointer;
+    margin: 10px;
+  }
+}
+
+.langActive,
+.cityActive {
+  color: $enfasis-text-color-dark;
+}
+
+#contactForm {
+  margin: 10px 30px;
+
+  summary {
+    text-align: start;
+    font-size: 1.5em;
+    list-style: none;
+    cursor: pointer;
+    @include hover-color($enfasis-text-color-dark);
+  }
+
+  form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 120px;
+
+    input {
+      margin-bottom: 5px;
+      padding: 5px;
+      border: 2px solid gray;
+      border-radius: 4px;
+    }
+
+    label {
+      text-align: start;
+      margin-top: 5px;
+    }
+  }
+
+  button {
+    margin-top: 5px;
+    background-color: $form-button-dark;
+  }
+
+  button:disabled {
+    background-color: $nav-background-color-dark;
+  }
+}
+
+#weatherMain,
+#weatherDetails,
+#forecastContainer {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+#weatherDetails {
+  margin: 20px 20px 40px 20px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+
+  li {
+    position: relative;
+    border-radius: 10%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 110px;
+    text-wrap: wrap;
+    text-align: center;
+    
+    b {
+      font-size: 1.2em;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    span {
+      color: $enfasis-text-color-dark;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.detailsSVG {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  max-width: 40px;
+  opacity: 0.2;
+  filter: invert(1);
+}
+
+#weatherDescription {
+  font-size: 2em;
+  margin-top: 0;
+  color: $enfasis-text-color-dark;
+}
+
+#forecastList {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll;
+  max-width: 90%;
+
+  li {
+    padding: 10px;
+    min-width: 100px;
+    position: relative;
+
+    img {
+      margin: auto;
+      max-width: 50px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        color: $enfasis-text-color-dark;
+      }
+    }
+  }
+}
+
+.forecastArrow {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  font-size: 1.5em;
+}
+
+#weatherMain.noOpacity,
+#weatherDetails.noOpacity,
+#forecastContainer.noOpacity {
+  opacity: 1;
+  transform: translateY(0);
+  @include transition(all);
+}
+
+#menuButton {
+  padding: 0;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+
+  span {
+    display: block;
+    width: 42px;
+    height: 4px;
+    background-color: $menu-button-dark;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+.openMenu {
+  transform: translateX(0);
+}
+
+@include prefers-color-scheme(light) {
+  button:hover,
+  .langActive,
+  .cityActive,
+  #weatherDescription,
+  #weatherDetails li span,
+  #forecastList li div span,
+  #langButton:hover,
+  #contactForm summary:hover {
+    color: $enfasis-text-color-light;
+  }
+
+  .detailsSVG {
+    filter: none;
+    opacity: 0.1;
+  }
+
+  #langButton {
+    background-color: $lang-button-background-light;
+  }
+
+  #menuButton span {
+    background-color: $menu-button-light;
+  }
+
+  #contactForm button {
+    background-color: $form-button-light;
+
+    @include hover-color($enfasis-text-color-light);
+  }
+
+  #contactForm button:disabled {
+    background-color: $nav-background-color-light;
+  }
+}
+
+@include media-query(730px) {
+  #menuButton {
+    display: flex;
+  }
+
+  #weatherDetails {
+    margin: 5px 5px 40px 5px;
+
+    li {
+      width: 90px;
+    }
+  }
+}

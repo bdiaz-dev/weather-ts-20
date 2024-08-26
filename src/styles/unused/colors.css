@@ -1,0 +1,19 @@
+:root {
+  /* Dark mode */
+  --enfasis-text-color-dark: orange;
+  --shadow-title-dark: orangered;
+  --background-color-dark: gray;
+  --nav-background-color-dark: #161616;
+  --lang-button-background-dark: #1a1a1a;
+  --menu-button-dark: gray;
+  --form-button-dark: rgb(63, 63, 63);
+
+  /* Light Mode */
+  --enfasis-text-color-light: orange;
+  --shadow-title-light: orangered;
+  --background-color-light: rgb(231, 230, 217);
+  --nav-background-color-light: rgb(146, 143, 105);
+  --lang-button-background-light: rgb(146, 143, 105);
+  --menu-button-light: rgb(0, 0, 0);
+  --form-button-light: rgb(204, 186, 115);
+}

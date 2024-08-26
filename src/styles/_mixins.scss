@@ -1,0 +1,27 @@
+@mixin transition($property, $duration: 0.3s, $ease: ease) {
+  transition: $property $duration $ease;
+}
+
+@mixin hover-border-color($color) {
+  &:hover {
+    border-color: $color;
+  }
+}
+
+@mixin hover-color($color) {
+  &:hover {
+    color: $color;
+  }
+}
+
+@mixin media-query($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin prefers-color-scheme($scheme) {
+  @media (prefers-color-scheme: $scheme) {
+    @content;
+  }
+}
