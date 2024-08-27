@@ -50,7 +50,8 @@ button {
   @include hover-color($enfasis-text-color-dark);
 }
 
-#langButton, #formSendButton {
+// #langButton, 
+#formSendButton {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -62,18 +63,18 @@ button {
   @include hover-border-color($enfasis-text-color-dark);
 }
 
-#langButtonsContainer {
-  display: flex;
-  gap: 2px;
-  position: fixed;
-  right: 4px;
-  top: 4px;
-}
+// #langButtonsContainer {
+//   display: flex;
+//   gap: 2px;
+//   position: fixed;
+//   right: 4px;
+//   top: 4px;
+// }
 
-#langButton {
-  padding: 3px 7px;
-  background-color: $lang-button-background-dark;
-}
+// #langButton {
+//   padding: 3px 7px;
+//   background-color: $lang-button-background-dark;
+// }
 
 #cities {
   list-style: none;

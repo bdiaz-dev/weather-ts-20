@@ -1,17 +1,19 @@
+import { KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
-import engSVG from '../../assets/eng.svg';
-import espSVG from '../../assets/esp.svg';
 
 export default function LangButtons() {
   const { lang, setLang } = useLanguage();
 
-  type LanguagesStrings = { code: string, label: string };
-  type Languages = LanguagesStrings[];
-
   const toggleSwitch = () => {
     const langToSet = lang === 'en' ? 'es' : 'en';
     setLang(langToSet);
+  };
+
+  const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.code === 'ControlLeft') {
+      toggleSwitch();
+    }
   };
 
   const spring = {
@@ -22,7 +24,15 @@ export default function LangButtons() {
 
   return (
     // <div id="langButtonsContainer">
-    <div className="langSwitch" data-is-en={lang === 'en'} onClick={toggleSwitch}>
+    <div
+      className="langSwitch"
+      data-is-en={lang === 'en'}
+      onClick={toggleSwitch}
+      tabIndex={0}
+      aria-checked
+      role="switch"
+      onKeyUp={(e) => handleKey(e)}
+    >
       <motion.div className="langHandle" layout transition={spring} />
     </div>
   );
