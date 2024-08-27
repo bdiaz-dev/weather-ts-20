@@ -12,6 +12,7 @@ import MenuLayout from './components/nav/MenuLayout';
 import todayDate from './libs/todayDate';
 import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
+import BackgroundVideo from './components/background/Background';
 
 function App() {
   const { lang } = useLanguage();
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <>
+    <BackgroundVideo />
       {/* DYNAMIC TITLE AND FAVICON */}
       {
         weatherData?.main
