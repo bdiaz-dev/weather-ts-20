@@ -76,11 +76,11 @@ function App() {
             && (
               <section>
                 <WeatherMain
-                  weatherData={weatherData.main}
+                  weatherData={weatherData}
                 />
-                <WeatherDetails
+                {/* <WeatherDetails
                   weatherDetails={weatherData.details}
-                />
+                /> */}
               </section>
             )
           }
