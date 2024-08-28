@@ -5,7 +5,7 @@ import {
 const CityContext = createContext<UseStateCityContext | undefined>(undefined);
 
 export function CityProvider({ children }: { children: ReactNode }) {
-  const [city, setCity] = useState('Lisbon');
+  const [city, setCity] = useState('Rome');
   const value = useMemo(() => ({ city, setCity }), [city]);
 
   return (

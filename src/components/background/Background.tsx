@@ -1,11 +1,23 @@
-import f from "../../assets/cities/london/01d.jpg"
+import React, { useEffect, useState } from 'react';
+import { useCity } from '../../context/CityContext';
 
-export default function Background() {
+type BackgroundParam = { code: string, children: React.ReactNode };
+
+export default function Background({ code, children }: BackgroundParam) {
+  const { city } = useCity();
+  const [img, setImg] = useState<string>();
+  useEffect(() => {
+    const cityString = city.replace(' ', '_');
+    const getBackgroundString = `${cityString}/${code}`;
+    setImg(`/assets/cities/${getBackgroundString}.jpg`);
+  }, [city, code]);
   return (
-    <img
-      className="background"
-      src={f}
-      alt=""
-    />
+    <main
+      style={{
+        backgroundImage: `url(${img})`,
+      }}
+    >
+      {children}
+    </main>
   );
 }

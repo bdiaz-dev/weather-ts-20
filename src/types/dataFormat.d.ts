@@ -4,6 +4,7 @@ interface ActualWeatherFormatMain {
   icon: string
   description: string,
   temp: string,
+  code: string,
 }
 
 interface ActualWeatherFormatDetails {

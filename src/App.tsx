@@ -12,6 +12,7 @@ import MenuLayout from './components/nav/MenuLayout';
 import todayDate from './libs/todayDate';
 import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
+import Background from './components/background/Background';
 // import Background from './components/background/Background';
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
           />
         )
       }
-      <main>
+      <Background code={weatherData?.main.code}>
         {/* MENU WITH CITIES AND LANG BUTTONS */}
         <MenuLayout />
 
@@ -51,9 +52,9 @@ function App() {
             !weatherData?.main && isFirstLoad
             && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
           }
-          {
+          {/* {
             weatherData?.main && <h1>Weather App</h1>
-          }
+          } */}
           {
             weatherData?.main && <h2>{todayDate(lang)}</h2>
           }
@@ -106,7 +107,7 @@ function App() {
             )
           }
         </article>
-      </main>
+      </Background>
     </>
   );
 }

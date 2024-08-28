@@ -16,6 +16,7 @@ const useActualWeather = ({ city, lang }: FetchParams) => {
         icon: `${import.meta.env.VITE_ICONS_URL_BASE}${weatherData.weather[0].icon}@4x.png`,
         description: weatherData.weather[0].description,
         temp: `${Math.round(weatherData.main.temp)}º`,
+        code: (weatherData.weather[0].icon),
       };
 
       const actualWeatherDetails = {

@@ -9,8 +9,8 @@ type City = {
 const cities: City[] = [
   {
     name: {
-      en: 'Lisbon',
-      es: 'Lisboa',
+      en: 'Rome',
+      es: 'Roma',
     },
   },
   {
@@ -38,7 +38,13 @@ const setCityName = ({ selectedCity, lang }: SetCityNameParams): string => {
   if (cityObject) {
     return cityObject.name.es;
   }
-  return 'Lisbon';
+  return 'Rome';
 };
+
+// type GetBackgroundParams = { city: string, code: string}
+
+// const getBackground = ({city, code}: GetBackgroundParams) => {
+
+// }
 
 export { cities, setCityName };

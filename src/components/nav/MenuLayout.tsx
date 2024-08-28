@@ -11,7 +11,7 @@ export default function MenuLayout() {
   return (
     <>
       <header>
-        <h2>WeatherApp</h2>
+        {/* <h2>WeatherApp</h2> */}
         <LangButtons />
       </header>
       <MenuButton openMenu={handleOpenMenu} buttonRef={buttonRef} />

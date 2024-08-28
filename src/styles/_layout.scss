@@ -15,12 +15,13 @@ header {
   z-index: 1002;
   background-color: $nav-background-color-dark;
   position: fixed;
+  top: 0;
   width: 100dvw;
   height: max-content;
   text-align: start;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
 
   h2 {
     margin: 10px 20px;
@@ -35,6 +36,7 @@ nav {
   justify-content: center;
   height: 100dvh;
   position: fixed;
+  top: 0;
   width: 200px;
   z-index: 100;
   @include transition(transform);
@@ -42,6 +44,7 @@ nav {
 
 article {
   margin: auto;
+  margin-top: 90px;
   grid-column: 2;
   display: flex;
   flex-direction: column;
@@ -52,7 +55,7 @@ article {
 }
 
 section {
-  max-width: 90%;
+  // max-width: 97%;
 }
 
 @include media-query(730px) {
