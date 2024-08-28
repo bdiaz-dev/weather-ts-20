@@ -2,6 +2,18 @@
   transition: $property $duration $ease;
 }
 
+@mixin backgroundNav {
+  background-color: $background-color-card;
+  backdrop-filter: blur(20px);
+}
+
+@mixin shine($color) {
+  box-shadow: 0 0 10px $color, 0 0 10px $color, 0 0 10px $color;
+}
+@mixin textShine($color) {
+  text-shadow: 0 0 10px $color, 0 0 10px $color, 0 0 10px $color;
+}
+
 @mixin hover-border-color($color) {
   &:hover {
     border-color: $color;

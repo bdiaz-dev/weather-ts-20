@@ -9,11 +9,15 @@ main {
   height: 100%;
   display: grid;
   grid-template-columns: 200px 1fr;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 header {
+  @include backgroundNav;
   z-index: 1002;
-  background-color: $nav-background-color-dark;
+  // background-color: $nav-background-color-dark;
   position: fixed;
   top: 0;
   width: 100dvw;
@@ -29,14 +33,15 @@ header {
 }
 
 nav {
-  background-color: $nav-background-color-dark;
+  // background-color: $nav-background-color-dark;
+  @include backgroundNav;
   grid-column: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100dvh;
   position: fixed;
-  top: 0;
+  top: 63px;
   width: 200px;
   z-index: 100;
   @include transition(transform);
@@ -55,12 +60,12 @@ article {
 }
 
 section {
-  // max-width: 97%;
+  width: 100%;
 }
 
-@include media-query(730px) {
+@include media-query(1100px) {
   main {
-    display: block;
+    display: inline-block;
   }
 
   nav {
@@ -68,7 +73,7 @@ section {
   }
 
   article {
-    max-width: 75dvw;
+    max-width: 90dvw;
   }
 }
 

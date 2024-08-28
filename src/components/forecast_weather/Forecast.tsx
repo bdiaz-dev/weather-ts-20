@@ -28,17 +28,17 @@ export default function Forecast({ forecastData }: ForecastParams) {
             </div>
             <div>
               <img src={item.icon} alt="forecast weather icon" />
-              <span>{item.description}</span>
+              {/* <span>{item.description}</span> */}
               <span>{item.temp}</span>
             </div>
-            {
+            {/* {
               (i + 1 < forecastData.length)
                 && (
                 <b className="forecastArrow">
                   {'>'}
                 </b>
                 )
-            }
+            } */}
           </li>
         ))}
       </ul>

@@ -56,7 +56,7 @@ function App() {
             weatherData?.main && <h1>Weather App</h1>
           } */}
           {
-            weatherData?.main && <h2>{todayDate(lang)}</h2>
+            weatherData?.main && <h2 className='frontDate'>{todayDate(lang)}</h2>
           }
           {
             weatherLoading && isFirstLoad && !weatherData

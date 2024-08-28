@@ -2,7 +2,6 @@ import { useCity } from '../../context/CityContext';
 import { useLanguage } from '../../context/LanguageContext';
 import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
 import { setCityName } from '../../libs/cities';
-import { detailsSVG, text } from '../../libs/content';
 import { ActualWeatherFormat } from '../../types/dataFormat';
 import WeatherDetails from './WeatherDetails';
 
@@ -19,15 +18,15 @@ export default function WeatherMain({ weatherData }: WeatherMainParams) {
   return (
     <div id="weatherMain" ref={mainRef}>
       <h2 data-testid="cityTitle">{`${cityInLang} ${weatherData.main.country}`}</h2>
-      <div className="weatherTempContainer">
-        <span className="weatherTemp">
-          {weatherData.main.temp}
+      <span className="weatherTemp">
+        {weatherData.main.temp}
+      </span>
+      <div className='weatherDescriptionContainer'>
+        <span id="weatherDescription">
+          {weatherData.main.description}
         </span>
-        <img src={weatherData.main.icon} alt="main weather icon" />
+        <img src={weatherData.main.icon} className='weatherIcon' alt="main weather icon" />
       </div>
-      <p id="weatherDescription">
-        {weatherData.main.description}
-      </p>
       <WeatherDetails weatherDetails={weatherData.details} />
     </div>
 

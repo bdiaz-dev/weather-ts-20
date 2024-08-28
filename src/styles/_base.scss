@@ -33,9 +33,9 @@ h3 {
   font-size: 1.5em;
 }
 
-img {
-  transform: scale(1.5);
-}
+// img {
+//   transform: scale(1.5);
+// }
 
 @include prefers-color-scheme(light) {
   :root {
