@@ -7,7 +7,12 @@ export default function Background({ city, code, children }: BackgroundParam) {
 
     const cityString = city.replace(' ', '_');
     const getBackgroundString = `${cityString}/${code}`;
-    setImg(`/assets/cities/${getBackgroundString}.webp`);
+    const imgUrl = `/assets/cities/${getBackgroundString}.webp`;
+    const image = new Image();
+    image.src = imgUrl;
+    image.onload = () => {
+      setImg(`/assets/cities/${getBackgroundString}.webp`);
+    };
   }, [city, code]);
   return (
     <main
