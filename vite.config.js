@@ -3,11 +3,25 @@
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-// import path from 'path'
+import viteImagemin from '@vheemstra/vite-plugin-imagemin'
+import imageminMozjpeg from 'imagemin-mozjpeg'
+import imageminWebp from 'imagemin-webp'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteImagemin({
+      plugins: {
+        jpg: imageminMozjpeg(),
+      },
+      makeWebp: {
+        plugins: {
+          jpg: imageminWebp(),
+        },
+      },
+    }),
+  ],
   test: {
     environment: "jsdom",
     globals: true
