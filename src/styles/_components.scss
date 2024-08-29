@@ -333,16 +333,19 @@ button {
     margin-left: 30px;
     margin-right: 30px;
   }
-  #weatherDetails {
-    margin-top: 40px;
+  #weatherMain {
 
-    li {
-      width: 90px;
-      flex-direction: row;
-      gap: 20px;
+    #weatherDetails {
+      margin-top: 40px;
+      
+      li {
+        width: 90px;
+        flex-direction: row;
+        gap: 20px;
 
-      b {
-        display: none;
+        b {
+          display: none;
+        }
       }
     }
   }
