@@ -14,13 +14,13 @@ export default function Forecast({ forecastData }: ForecastParams) {
   const { city } = useCity();
   const cityInLang = setCityName({ selectedCity: city, lang });
   const mainRef = useNoOpacity<HTMLDivElement>({
-    data: forecastData, city: cityInLang, timeout: 2000,
+    data: forecastData, city: cityInLang, timeout: 1500,
   });
   return (
     <div id="forecastContainer" ref={mainRef}>
       <h3>{forecastTitle[lang]}</h3>
       <ul id="forecastList">
-        {forecastData.map((item, i) => (
+        {forecastData.map((item) => (
           <li key={`${item.date} ${item.hour}`}>
             <div>
               <b>{item.date}</b>
@@ -28,17 +28,8 @@ export default function Forecast({ forecastData }: ForecastParams) {
             </div>
             <div>
               <img src={item.icon} alt="forecast weather icon" />
-              {/* <span>{item.description}</span> */}
               <span>{item.temp}</span>
             </div>
-            {/* {
-              (i + 1 < forecastData.length)
-                && (
-                <b className="forecastArrow">
-                  {'>'}
-                </b>
-                )
-            } */}
           </li>
         ))}
       </ul>

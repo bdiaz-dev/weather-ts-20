@@ -1,22 +1,14 @@
 import { detailsSVG, text } from '../../libs/content';
-import { setCityName } from '../../libs/cities';
 import { useLanguage } from '../../context/LanguageContext';
-import { useCity } from '../../context/CityContext';
-import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
 import { ActualWeatherFormatDetails } from '../../types/dataFormat';
 
 interface WeatherDetailsParams {weatherDetails: ActualWeatherFormatDetails}
 
 export default function WeatherDetails({ weatherDetails }: WeatherDetailsParams) {
   const { lang } = useLanguage();
-  const { city } = useCity();
-  const cityInLang = setCityName({ selectedCity: city, lang });
-  const mainRef = useNoOpacity<HTMLUListElement>({
-    data: weatherDetails, city: cityInLang, timeout: 1500,
-  });
 
   return (
-    <ul id="weatherDetails" ref={mainRef}>
+    <ul id="weatherDetails">
       <li>
         <img src={detailsSVG.maxMin} className="detailsSVG" alt="max-min svg" />
         <b>{text[lang].maxMin}</b>
