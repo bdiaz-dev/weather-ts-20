@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { handleClick, isActive } from '../../libs/handleCities';
 import { useCity } from '../../context/CityContext';
@@ -15,13 +16,15 @@ export default function Cities({ closeMenu }: CitiesParams) {
           <li
             key={ct.name.en}
           >
-            <button
+            <motion.button
               type="button"
               onClick={() => { handleClick({ city: ct.name.en, closeMenu, setCity }); }}
               className={isActive(ct.name.en, selectedCity)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               {ct.name[lang]}
-            </button>
+            </motion.button>
           </li>
         ))
       }

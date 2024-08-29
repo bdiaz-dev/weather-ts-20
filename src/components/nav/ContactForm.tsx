@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { useFormState } from '../../hooks/contactForm/useFormState';
 import { formLabels, placeholders } from '../../libs/formText';
 import { useLanguage } from '../../context/LanguageContext';
@@ -15,7 +16,12 @@ export default function ContactForm({ detailsRef }: ContactFormType) {
 
   return (
     <details ref={detailsRef} id="contactForm" data-testid="contactForm">
-      <summary>{formLabels[lang].title}</summary>
+      <motion.summary
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {formLabels[lang].title}
+      </motion.summary>
       <form onSubmit={(e) => handleFormSend(e, { emailRef, formData, lang })}>
         <label htmlFor="nameInput">{formLabels[lang].name}</label>
         <input
