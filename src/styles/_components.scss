@@ -3,9 +3,7 @@
 }
 
 .langSwitch {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 30px;
+  margin: 10px 30px 10px 0;
   width: 65px;
   background-color: rgba(255, 255, 255, 0.4);
   display: flex;
@@ -13,24 +11,25 @@
   border-radius: 5px;
   padding: 4px 8px;
   cursor: pointer;
-}
 
-.langSwitch[data-is-en="true"] {
-  justify-content: flex-start;
   .langHandle {
-    background-image: url('/assets/eng.svg');
+    width: 35px;
+    height: 35px;
+    background-image: url('/assets/esp.svg');
+    background-size: cover;
+    border-radius: 5px;
     transition: background-image 0.2s;
+  }
+
+  &[data-is-en="true"] {
+    justify-content: flex-start;
+    .langHandle {
+      background-image: url('/assets/eng.svg');
+      transition: background-image 0.2s;
+    }
   }
 }
 
-.langHandle {
-  width: 35px;
-  height: 35px;
-  background-image: url('/assets/esp.svg');
-  background-size: cover;
-  border-radius: 5px;
-  transition: background-image 0.2s;
-}
 
 button {
   @include hover-color($enfasis-text-color-dark);
@@ -54,10 +53,12 @@ button {
   padding: 0;
   text-align: start;
 
+  .cityActive {
+    @include shine(white)
+  }
+
   button {
     background-color: rgba(255, 255, 255, 0);
-    // border: 0;
-    // padding: 0;
     border: 1px solid white;
     border-radius: 10px;
     padding: 2px 0;
@@ -70,10 +71,6 @@ button {
   }
 }
 
-.cityActive {
-  // color: $enfasis-text-color-dark;
-  @include shine(white)
-}
 
 #contactForm {
   margin: 10px 30px;
@@ -115,25 +112,14 @@ button {
   }
 }
 
-#weatherMain,
-// #weatherDetails,
-#forecastContainer {
-  background-color: $background-color-card;
-  backdrop-filter: blur(4px);
-  border-radius: 20px;
-  box-shadow: 2px 2px 10px rgb(93, 93, 97);
-  padding: 30px;
-  max-width: 710px;
-  opacity: 0;
-  transform: translateY(-8px);
-  margin: auto;
-  // margin: 0 40px;
-}
-
 #weatherMain {
-  span {
+  @include cardStyle($background-color-card);
+
+  .weatherTemp {
+    font-size: 10em;
     line-height: 1;
   }
+
   .weatherDescriptionContainer {
     display: flex;
     gap: 10px;
@@ -145,117 +131,111 @@ button {
     font-size: 2em;
     margin-top: 0;
   }
-}
 
-#weatherDetails {
-  margin: 20px 20px 40px 20px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  padding: 0;
-
-  li {
-
-    border-radius: 10%;
-    padding: 8px;
+  #weatherDetails {
+    margin: 20px 20px 40px 20px;
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    width: 110px;
-    text-wrap: wrap;
-    text-align: center;
-    
-    b {
-      font-size: 1em;
-    }
-
-    div {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0;
+  
+    li {
+      border-radius: 10%;
+      padding: 8px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex-grow: 1;
-    }
+      width: 110px;
+      text-wrap: wrap;
+      text-align: center;
+      
+      b {
+        font-size: 1em;
+      }
+  
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+      }
+  
+      span {
+        font-size: 1.5em;
+        font-weight: 700;
+      }
 
-    span {
-      font-size: 1.5em;
-      font-weight: 700;
+      .detailsSVG {
+        margin: auto;
+        margin-bottom: 10px;
+        max-width: 30px;
+        filter: invert(1);
+      }
+
     }
   }
-}
-
-.detailsSVG {
-  margin: auto;
-  margin-bottom: 10px;
-  max-width: 30px;
-  // opacity: 0.2;
-  filter: invert(1);
-}
-
-.weatherTemp {
-  font-size: 10em;
 }
 
 #forecastContainer {
+  @include cardStyle($background-color-card);
+
   h3 {
     margin-top: 0;
   }
-}
 
-#forecastList {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  overflow-x: scroll;
-  max-width: 90%;
-  flex-shrink: 1;
-
-  li {
-    padding: 10px;
-    min-width: 50px;
-    position: relative;
-    
-    border: 1px solid white;
-    border-radius: 15px;
-    
-    margin-bottom: 20px;
-    
-    b {
-      font-size: 0.9em;
-    }
-
-    img {
-      margin: auto;
-      max-width: 50px;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-
-      span {
-        font-size: 1.5em;
-        font-weight: 600;
-        // color: $enfasis-text-color-dark;
+  #forecastList {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    overflow-x: scroll;
+    max-width: 90%;
+    flex-shrink: 1;
+  
+    li {
+      padding: 10px;
+      min-width: 50px;
+      position: relative;
+      border: 1px solid white;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      
+      b {
+        font-size: 0.9em;
+      }
+  
+      img {
+        margin: auto;
+        max-width: 50px;
+      }
+  
+      div {
+        display: flex;
+        flex-direction: column;
+  
+        span {
+          font-size: 1.5em;
+          font-weight: 600;
+        }
       }
     }
   }
 }
 
-.forecastArrow {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  font-size: 1.5em;
-}
+
+// .forecastArrow {
+//   position: absolute;
+//   top: 50%;
+//   left: 100%;
+//   font-size: 1.5em;
+// }
 
 #weatherMain.noOpacity,
-#weatherDetails.noOpacity,
 #forecastContainer.noOpacity {
   opacity: 1;
   transform: translateY(0);
@@ -346,12 +326,6 @@ button {
   #menuButton {
     display: flex;
   }
-  
-  // #weatherMain {
-  //   margin: 0 15px;
-  // }
-
-
 }
 
 @include media-query(564px) {
@@ -360,14 +334,16 @@ button {
     margin-right: 30px;
   }
   #weatherDetails {
-margin-top: 40px;
+    margin-top: 40px;
+
     li {
       width: 90px;
       flex-direction: row;
       gap: 20px;
+
       b {
         display: none;
       }
-      }
+    }
   }
 }

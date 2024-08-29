@@ -5,6 +5,7 @@ interface ActualWeatherFormatMain {
   description: string,
   temp: string,
   code: string,
+  cityFetch: string,
 }
 
 interface ActualWeatherFormatDetails {

@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
 import { ForecastDataFetch } from '../../types/dataFetch';
+import { getCountry } from '../../libs/cities';
 
 const useForecastWeatherFetch = ({ city, lang }: FetchParams) => {
+  const urlBase = import.meta.env.VITE_URL_BASE;
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [forecastWeatherData, setForecastWeatherData] = useState<ForecastDataFetch | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const country = getCountry(city);
 
   useEffect(() => {
     let isMounted = true;
 
     const fetchForecastWeather = async () => {
-      const urlForFetch = `${import.meta.env.VITE_URL_BASE}forecast?q=${city}&lang=${lang}&units=metric&appid=${import.meta.env.VITE_API_KEY}`;
+      const urlForFetch = `${urlBase}forecast?q=${city},${country}&lang=${lang}&units=metric&appid=${apiKey}`;
       try {
         setLoading(true);
         const res = await fetch(urlForFetch);
@@ -39,7 +43,7 @@ const useForecastWeatherFetch = ({ city, lang }: FetchParams) => {
     return () => {
       isMounted = false;
     };
-  }, [city, lang]);
+  }, [apiKey, city, country, lang, urlBase]);
 
   return { forecastWeatherData, loading, error };
 };

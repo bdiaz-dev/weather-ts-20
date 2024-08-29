@@ -17,6 +17,7 @@ const useActualWeather = ({ city, lang }: FetchParams) => {
         description: weatherData.weather[0].description,
         temp: `${Math.round(weatherData.main.temp)}º`,
         code: (weatherData.weather[0].icon),
+        cityFetch: weatherData.name,
       };
 
       const actualWeatherDetails = {

@@ -3,7 +3,8 @@ type City = {
     [key: string]: string
     en: string,
     es: string,
-  }
+  },
+  country: string,
 };
 
 const cities: City[] = [
@@ -12,18 +13,21 @@ const cities: City[] = [
       en: 'Rome',
       es: 'Roma',
     },
+    country: 'IT',
   },
   {
     name: {
       en: 'New York',
       es: 'Nueva York',
     },
+    country: 'US',
   },
   {
     name: {
       en: 'London',
       es: 'Londres',
     },
+    country: 'GB',
   },
 ];
 
@@ -41,10 +45,12 @@ const setCityName = ({ selectedCity, lang }: SetCityNameParams): string => {
   return 'Rome';
 };
 
-// type GetBackgroundParams = { city: string, code: string}
+const getCountry = (selectedCity: string) => {
+  const cityObject = cities.find((city) => city.name.en === selectedCity);
+  if (cityObject) {
+    return cityObject.country;
+  }
+  return 'IT';
+};
 
-// const getBackground = ({city, code}: GetBackgroundParams) => {
-
-// }
-
-export { cities, setCityName };
+export { cities, setCityName, getCountry };

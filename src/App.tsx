@@ -1,11 +1,9 @@
-// import './App.css';
 import { useState } from 'react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { CityProvider, useCity } from './context/CityContext';
 import { useActualWeather } from './hooks/data/useActualWeather';
 import { useForecastWeather } from './hooks/data/useForecastWeather';
 import WeatherMain from './components/actual_weather/WeatherMain';
-import WeatherDetails from './components/actual_weather/WeatherDetails';
 import Forecast from './components/forecast_weather/Forecast';
 import ErrorAlert from './components/error/ErrorAlert';
 import MenuLayout from './components/nav/MenuLayout';
@@ -13,7 +11,6 @@ import todayDate from './libs/todayDate';
 import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
 import Background from './components/background/Background';
-// import Background from './components/background/Background';
 
 function App() {
   const { lang } = useLanguage();
@@ -32,7 +29,6 @@ function App() {
 
   return (
     <>
-      {/* <Background /> */}
       {/* DYNAMIC TITLE AND FAVICON */}
       {
         weatherData?.main
@@ -43,7 +39,10 @@ function App() {
           />
         )
       }
-      <Background code={weatherData?.main.code}>
+      <Background
+        city={weatherData?.main.cityFetch}
+        code={weatherData?.main.code}
+      >
         {/* MENU WITH CITIES AND LANG BUTTONS */}
         <MenuLayout />
 
@@ -56,7 +55,7 @@ function App() {
             weatherData?.main && <h1>Weather App</h1>
           } */}
           {
-            weatherData?.main && <h2 className='frontDate'>{todayDate(lang)}</h2>
+            weatherData?.main && <h2 className="frontDate">{todayDate(lang)}</h2>
           }
           {
             weatherLoading && isFirstLoad && !weatherData

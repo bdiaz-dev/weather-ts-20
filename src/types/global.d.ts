@@ -1,3 +1,9 @@
+interface BackgroundParam {
+  city: string | undefined,
+  code: string | undefined,
+  children: React.ReactNode
+}
+
 interface UseStateCityContext {
   city: string,
   setCity: React.Dispatch<React.SetStateAction<string>>,

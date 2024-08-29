@@ -7,6 +7,18 @@
   backdrop-filter: blur(20px);
 }
 
+@mixin cardStyle($color) {
+  background-color: $color;
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px rgb(93, 93, 97);
+  padding: 30px;
+  max-width: 710px;
+  opacity: 0;
+  transform: translateY(-8px);
+  margin: auto;
+}
+
 @mixin shine($color) {
   box-shadow: 0 0 10px $color, 0 0 10px $color, 0 0 10px $color;
 }

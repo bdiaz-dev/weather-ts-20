@@ -21,11 +21,11 @@ export default function WeatherMain({ weatherData }: WeatherMainParams) {
       <span className="weatherTemp">
         {weatherData.main.temp}
       </span>
-      <div className='weatherDescriptionContainer'>
+      <div className="weatherDescriptionContainer">
         <span id="weatherDescription">
           {weatherData.main.description}
         </span>
-        <img src={weatherData.main.icon} className='weatherIcon' alt="main weather icon" />
+        <img src={weatherData.main.icon} className="weatherIcon" alt="main weather icon" />
       </div>
       <WeatherDetails weatherDetails={weatherData.details} />
     </div>
