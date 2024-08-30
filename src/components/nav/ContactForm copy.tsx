@@ -90,11 +90,11 @@ export default function ContactFormModal({ detailsRef }: ContactFormType) {
           id="formSendButton"
           type="submit"
           disabled={buttonDisabled}
-          style={{ borderColor: buttonDisabled ? '#1a1a1a' : 'white' }}
+          // style={{ borderColor: buttonDisabled ? '#1a1a1a' : 'white' }}
           title={sendTitle}
           className="formButton"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: !buttonDisabled ? 1.1 : 1 }}
+          whileTap={{ scale: !buttonDisabled ? 0.9 : 1 }}
         >
           {formLabels[lang].button}
         </motion.button>

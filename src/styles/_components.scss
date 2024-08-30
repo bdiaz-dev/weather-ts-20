@@ -1,3 +1,7 @@
+.swal2-container {
+  z-index: 4000;
+}
+
 #contactFormModal {
   z-index: 3000;
   position: fixed;
@@ -17,7 +21,6 @@
     width: 40dvw;
     padding: 50px;
     gap: 10px;
-    // height: 100dvh;
     justify-content: center;
     align-items: center;
 
@@ -51,12 +54,14 @@
       border: 1px solid white;
       border-radius: 10px;
       padding: 2px 0;
-      // width: 100% ;
       font-size: 1.5em;
       font-weight: normal;
       font-family: inherit;
       cursor: pointer;
       margin: 10px 0;
+      &:disabled {
+        border-color: rgba(0, 0, 0, 0.096);
+      }
     }
   }
 }
