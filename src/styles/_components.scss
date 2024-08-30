@@ -1,3 +1,71 @@
+#contactFormModal {
+  z-index: 3000;
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  background-color: $background-color-card;
+  backdrop-filter: blur(5px);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 40dvw;
+    padding: 50px;
+    gap: 10px;
+    // height: 100dvh;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $background-color-card;
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    
+    input, label, button {
+      width: 90%;
+    }
+
+    label {
+      text-align: start;
+      font-size: 1.5em;
+    }
+
+    input {
+      margin-bottom: 15px;
+      padding: 8px 5px;
+    }
+
+    button {
+      background-color: rgba(255, 255, 255, 0);
+      border: 1px solid white;
+      border-radius: 10px;
+      padding: 2px 0;
+      // width: 100% ;
+      font-size: 1.5em;
+      font-weight: normal;
+      font-family: inherit;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+  }
+}
+
+
+
+
+//------------
+
 .frontDate {
   @include textShine(black)
 }
@@ -62,57 +130,57 @@
 }
 
 
-#contactForm {
-  margin: 10px 30px;
+// #contactForm {
+//   margin: 10px 30px;
 
-  summary {
-    text-align: start;
-    font-size: 1.5em;
-    list-style: none;
-    cursor: pointer;
-    @include hover-color($enfasis-text-color-dark);
-  }
+//   summary {
+//     text-align: start;
+//     font-size: 1.5em;
+//     list-style: none;
+//     cursor: pointer;
+//     @include hover-color($enfasis-text-color-dark);
+//   }
 
-  form {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 120px;
+//   form {
+//     margin: auto;
+//     display: flex;
+//     flex-direction: column;
+//     max-width: 120px;
 
-    input {
-      margin-bottom: 5px;
-      padding: 5px;
-      border: 2px solid gray;
-      border-radius: 4px;
-    }
+//     input {
+//       margin-bottom: 5px;
+//       padding: 5px;
+//       border: 2px solid gray;
+//       border-radius: 4px;
+//     }
 
-    label {
-      text-align: start;
-      margin-top: 5px;
-    }
-  }
+//     label {
+//       text-align: start;
+//       margin-top: 5px;
+//     }
+//   }
 
-  #formSendButton {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    @include transition(border-color);
-    // @include hover-border-color($enfasis-text-color-dark);
-  }
+//   #formSendButton {
+//     border-radius: 8px;
+//     border: 1px solid transparent;
+//     padding: 0.6em 1.2em;
+//     font-size: 1em;
+//     font-weight: 500;
+//     font-family: inherit;
+//     cursor: pointer;
+//     @include transition(border-color);
+//     // @include hover-border-color($enfasis-text-color-dark);
+//   }
 
-  button {
-    margin-top: 5px;
-    background-color: $form-button-dark;
-  }
+//   button {
+//     margin-top: 5px;
+//     background-color: $form-button-dark;
+//   }
 
-  button:disabled {
-    background-color: $nav-background-color-dark;
-  }
-}
+//   button:disabled {
+//     background-color: $nav-background-color-dark;
+//   }
+// }
 
 #weatherMain {
   @include cardStyle($background-color-card);

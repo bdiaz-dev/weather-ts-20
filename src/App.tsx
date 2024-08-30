@@ -11,6 +11,7 @@ import todayDate from './libs/todayDate';
 import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
 import Background from './components/background/Background';
+import ContactFormModal from './components/nav/ContactForm copy';
 
 function App() {
   const { lang } = useLanguage();
@@ -39,6 +40,9 @@ function App() {
           />
         )
       }
+
+      {/* Form Modal */}
+      <ContactFormModal />
       <Background
         city={weatherData?.main.cityFetch}
         code={weatherData?.main.code}
