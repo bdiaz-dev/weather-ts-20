@@ -6,7 +6,7 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgb(255, 255, 255);
-  background-color: #242424;
+  background-color: $background-color-dark;
   background-size: cover;
   background-position: center;
   font-synthesis: none;
@@ -16,13 +16,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin: 20px 5px;
-  color: $enfasis-text-color-dark;
-  text-shadow: 2px 2px 1px $shadow-title-dark;
-}
+// h1 {
+//   font-size: 3.2em;
+//   line-height: 1.1;
+//   margin: 20px 5px;
+//   color: $enfasis-text-color-dark;
+//   text-shadow: 2px 2px 1px $shadow-title-dark;
+// }
 
 h2 {
   font-size: 2em;
@@ -43,8 +43,8 @@ h3 {
     background-color: $background-color-light;
   }
 
-  h1 {
-    color: $enfasis-text-color-light;
-    text-shadow: 2px 2px 1px $shadow-title-light;
-  }
+  // h1 {
+  //   color: $enfasis-text-color-light;
+  //   text-shadow: 2px 2px 1px $shadow-title-light;
+  // }
 }

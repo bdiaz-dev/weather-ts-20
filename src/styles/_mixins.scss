@@ -19,6 +19,19 @@
   margin: auto;
 }
 
+@mixin navButtons ($color) {
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid $color;
+  border-radius: 10px;
+  padding: 2px 0;
+  width: 100% ;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-family: inherit;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
 @mixin shine($color) {
   box-shadow: 0 0 10px $color, 0 0 10px $color, 0 0 10px $color;
 }

@@ -12,11 +12,13 @@ import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
 import Background from './components/background/Background';
 import ContactFormModal from './components/nav/ContactForm copy';
+import { ContactModalProvider, useContactModal } from './context/ContactModalContext';
 
 function App() {
   const { lang } = useLanguage();
   const { city } = useCity();
   const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
+  const { isContactModal } = useContactModal();
 
   const {
     formattedWeather: weatherData,
@@ -42,7 +44,7 @@ function App() {
       }
 
       {/* Form Modal */}
-      <ContactFormModal />
+      {isContactModal && <ContactFormModal />}
       <Background
         city={weatherData?.main.cityFetch}
         code={weatherData?.main.code}
@@ -118,9 +120,11 @@ function App() {
 export default function Root() {
   return (
     <LanguageProvider>
-      <CityProvider>
-        <App />
-      </CityProvider>
+      <ContactModalProvider>
+        <CityProvider>
+          <App />
+        </CityProvider>
+      </ContactModalProvider>
     </LanguageProvider>
   );
 }

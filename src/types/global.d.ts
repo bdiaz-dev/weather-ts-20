@@ -10,8 +10,12 @@ interface UseStateCityContext {
 }
 
 interface UseStateLangContext {
-  lang: UseStateCityContext.lang,
+  lang: UseStateCityContext.city,
   setLang: UseStateCityContext.setCity,
+}
+interface UseStateModalContext {
+  isContactModal: boolean,
+  setIsContactModal: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 interface VoidFunction {

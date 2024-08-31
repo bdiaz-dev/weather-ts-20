@@ -1,31 +1,40 @@
-import { useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useFormState } from '../../hooks/contactForm/useFormState';
 import { formLabels, placeholders } from '../../libs/formText';
 import { useLanguage } from '../../context/LanguageContext';
 import { useButtonTitle } from '../../hooks/contactForm/useButtonTitle';
 import { handleFormSend } from '../../libs/contactFormUtils';
+import { useContactModal } from '../../context/ContactModalContext';
 
-interface ContactFormType { detailsRef: React.RefObject<HTMLDetailsElement> }
-
-export default function ContactFormModal({ detailsRef }: ContactFormType) {
+export default function ContactFormModal() {
   const { lang } = useLanguage();
   const { formData, buttonDisabled, handleInputChange } = useFormState();
   const sendTitle = useButtonTitle(lang, buttonDisabled);
   const emailRef = useRef<HTMLInputElement | null>(null);
+  const { isContactModal, setIsContactModal } = useContactModal();
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    handleFormSend({
+      emailRef, formData, lang, setIsContactModal,
+    });
+  };
 
   return (
-    // <details ref={detailsRef} id="contactForm" data-testid="contactForm">
-    //   <motion.summary
-    //     whileHover={{ scale: 1.1 }}
-    //     whileTap={{ scale: 0.9 }}
-    //   >
-    //     {formLabels[lang].title}
-    //   </motion.summary>
-    <div id="contactFormModal">
+    <motion.div id="contactFormModal">
       <form
-        onSubmit={(e) => handleFormSend(e, { emailRef, formData, lang })}
+        onSubmit={handleSubmit}
       >
+        <motion.button
+          type="button"
+          className="closeModalButton"
+          onTap={() => { setIsContactModal(!isContactModal); }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          X
+        </motion.button>
         <label htmlFor="nameInput">{formLabels[lang].name}</label>
         <input
           id="nameInput"
@@ -99,7 +108,6 @@ export default function ContactFormModal({ detailsRef }: ContactFormType) {
           {formLabels[lang].button}
         </motion.button>
       </form>
-    </div>
-    // </details>
+    </motion.div>
   );
 }

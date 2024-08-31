@@ -5,7 +5,7 @@ import Nav from './Nav';
 
 export default function MenuLayout() {
   const {
-    menuRef, buttonRef, detailsRef, handleOpenMenu,
+    menuRef, buttonRef, handleOpenMenu,
   } = useMenu();
 
   return (
@@ -15,7 +15,7 @@ export default function MenuLayout() {
         <LangButtons />
       </header>
       <MenuButton openMenu={handleOpenMenu} buttonRef={buttonRef} />
-      <Nav handleOpenMenu={handleOpenMenu} menuRef={menuRef} detailsRef={detailsRef} />
+      <Nav handleOpenMenu={handleOpenMenu} menuRef={menuRef} />
     </>
   );
 }

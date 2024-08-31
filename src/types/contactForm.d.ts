@@ -10,6 +10,7 @@ interface FormSendParams {
   emailRef: React.RefObject<HTMLInputElement>,
   formData: InitialFormData,
   lang: string,
+  setIsContactModal: (value: boolean) => void;
 }
 
 interface UseFormDataParams {

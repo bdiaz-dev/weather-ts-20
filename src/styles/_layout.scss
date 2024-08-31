@@ -79,7 +79,7 @@ section {
 }
 
 @include prefers-color-scheme(light) {
-  nav {
-    background-color: $nav-background-color-light;
+  nav, header {
+    background-color: $background-color-card-light;
   }
 }

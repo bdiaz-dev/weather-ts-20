@@ -20,12 +20,16 @@ const text: LanguageMap = {
 };
 
 export const getConfirmation = (lang: string, formData: InitialFormData) => {
-  const message = `${text[lang].question}
-      ${text[lang].name}: ${formData.name}
-      ${text[lang].born}: ${formData.birthdate}
-      ${text[lang].live}: ${formData.city}
-      ${text[lang].email}: ${formData.email}
-      ${text[lang].phone}: ${formData.phone}`;
+  const message = `
+      <h2>${text[lang].question}</h2>
+      <div style='text-align: start; margin: 20px;'>
+      <b>${text[lang].name}:</b> <span>${formData.name}</span><br/>
+      <b>${text[lang].born}:</b> <span>${formData.birthdate}</span><br/>
+      <b>${text[lang].live}:</b> <span>${formData.city}</span><br/>
+      <b>${text[lang].email}:</b> <span>${formData.email}</span><br/>
+      <b>${text[lang].phone}:</b> <span>${formData.phone}</span><br/>
+      </div>
+      `;
   return message;
 };
 
@@ -63,5 +67,5 @@ export const placeholders: Placeholders = {
   name: 'John Doe',
   city: 'London',
   email: 'your@email.com',
-  phone: '600700800',
+  phone: '+34600700800',
 };
