@@ -1,0 +1,26 @@
+.swal2-container {
+  z-index: 4000;
+  
+  .swal2-popup {
+    outline: 2px solid white;
+    background-color: black;
+    color: white;
+  }
+  
+  button {
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+}
+
+@include prefers-color-scheme(light) {
+  .swal2-container {
+    z-index: 4000;
+
+    .swal2-popup {
+      outline: 2px solid black;
+      background-color: white;
+      color: black;
+    } 
+  }
+}

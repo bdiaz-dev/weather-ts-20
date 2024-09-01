@@ -1,0 +1,96 @@
+#contactFormModal {
+  z-index: 3000;
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  background-color: $background-color-card;
+  backdrop-filter: blur(5px);
+
+  form {
+    z-index: 3001;
+    display: flex;
+    flex-direction: column;
+    width: 40dvw;
+    max-height: 90dvh;
+    padding: 50px;
+    gap: 10px;
+    align-items: center;
+    
+    overflow-y: auto;
+
+    background-color: $background-color-card;
+    backdrop-filter: blur(2px);
+    border: 2px solid white;
+    border-radius: 20px;
+
+    position: relative;
+    @include autoCenter;
+    
+    input, label, button {
+      width: 90%;
+    }
+
+    label {
+      text-align: start;
+      font-size: 1.5em;
+    }
+
+    input {
+      margin-bottom: 15px;
+      padding: 8px 5px;
+    }
+
+    button {
+      background-color: rgb(48, 133, 214);
+      border: 0;
+      color: white;
+      border-radius: 10px;
+      padding: 2px 0;
+      font-size: 1.5em;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      margin: 10px 0;
+      &:disabled {
+        background-color: rgba(33, 72, 245, 0.075);
+      }
+    }
+    
+    .closeModalButton {
+      background-color: rgb(221, 51, 51);
+    }
+    
+  }
+}
+
+@include prefers-color-scheme(light) {
+  #contactFormModal {
+    background-color: $background-color-card-light;
+    form {
+      background-color: $background-color-card-light;
+      border: 2px solid black;
+    }
+  }
+}
+
+@include media-query-first-breakpoint {
+
+  #contactFormModal {
+    form {
+      width: 60dvw;
+    }
+  }
+}
+
+@include media-query-second-breakpoint {
+  #contactFormModal {
+    form {
+      width: 70dvw;
+    }
+  }
+}

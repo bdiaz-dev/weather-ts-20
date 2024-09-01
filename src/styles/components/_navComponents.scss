@@ -1,0 +1,38 @@
+#cities {
+  list-style: none;
+  margin: 0 20px 5px 20px;
+  padding: 0;
+  text-align: start;
+
+  .cityActive {
+    outline: 5px solid white;
+  }
+
+  button {
+    @include navButtons(white);
+  }
+}
+
+.openModalButton {
+  @include navButtons(white);
+  margin:  10px auto;
+  max-width: 160px
+}
+
+.openMenu {
+  transform: translateX(0);
+}
+
+@include prefers-color-scheme(light) {
+  #cities {
+    button {
+      @include navButtons(black);
+    }
+  }
+  
+  .openModalButton {
+    @include navButtons(black);
+    margin:  10px auto;
+    max-width: 160px
+  }
+}

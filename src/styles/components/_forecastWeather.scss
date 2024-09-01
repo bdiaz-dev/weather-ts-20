@@ -1,0 +1,67 @@
+#forecastContainer {
+  @include cardStyle($background-color-card);
+  margin-bottom: 40px;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  #forecastList {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    overflow-x: scroll;
+    max-width: 90%;
+    flex-shrink: 1;
+  
+    li {
+      padding: 10px;
+      min-width: 50px;
+      position: relative;
+      border: 1px solid white;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      
+      b {
+        font-size: 0.9em;
+      }
+  
+      img {
+        margin: 4px auto;
+        max-width: 40px;
+        filter: drop-shadow(2px 4px 6px black);
+      }
+  
+      div {
+        display: flex;
+        flex-direction: column;
+  
+        span {
+          font-size: 1.5em;
+          font-weight: 600;
+        }
+      }
+
+      
+    }
+  }
+  &.noOpacity {
+    @include noOpacity
+  }
+}
+
+@include prefers-color-scheme(light) {
+  #forecastContainer {
+    @include cardStyle($background-color-card-light);
+    margin-bottom: 40px;
+    #forecastList {
+      li {
+        border: 1px solid black;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

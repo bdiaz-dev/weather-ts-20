@@ -24,7 +24,7 @@ const useActualWeather = ({ city, lang }: FetchParams) => {
         maxTemp: `${Math.round(weatherData.main.temp_max)}º`,
         minTemp: `${Math.round(weatherData.main.temp_min)}º`,
         feelsLike: `${Math.round(weatherData.main.feels_like)}º`,
-        windSpeed: `${Math.round(weatherData.wind.speed)}km/h`,
+        windSpeed: `${Math.round(weatherData.wind.speed)}m/s`,
         direction: windDirection(Number(weatherData.wind.deg)),
         humidity: `${Math.round(weatherData.main.humidity)}%`,
       };
