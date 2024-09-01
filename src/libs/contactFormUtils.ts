@@ -5,18 +5,20 @@ import { getConfirmation, getThanks } from './formText';
 interface ShowConfirmParams {
   text: string,
   thanks: string | undefined,
+  lang: string,
 }
 
-const showConfirm = async ({ text, thanks }: ShowConfirmParams) => {
+const showConfirm = async ({ text, thanks, lang }: ShowConfirmParams) => {
+  const yesText = lang === 'en'
+    ? 'Yes, all right'
+    : 'Si, todo correcto';
   const res = await Swal.fire({
-    // title: 'Are you sure?',
-    // text,
     html: text,
     icon: 'question',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Ok',
+    confirmButtonText: yesText,
     cancelButtonText: 'No',
     allowEscapeKey: true,
   }).then((result) => {
@@ -43,7 +45,7 @@ export const handleFormSend = async ({
   const confirmationMessage = getConfirmation(lang, formData);
   const thanksMessage = getThanks(lang);
 
-  const result = await showConfirm({ text: confirmationMessage, thanks: thanksMessage });
+  const result = await showConfirm({ text: confirmationMessage, thanks: thanksMessage, lang });
   setIsContactModal(result);
   return result;
 };

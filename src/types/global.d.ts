@@ -66,6 +66,8 @@ interface LanguageStrings {
   email?: string;
   phone?: string;
   button?: string;
+  sendButton?: string;
+  closeButton?: string;
   question?: string;
   thanks?: string;
 }

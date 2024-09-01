@@ -43,7 +43,8 @@ export const formLabels: LanguageMap = {
     live: 'Current City',
     email: 'Email',
     phone: 'Phone number',
-    button: 'Send',
+    sendButton: 'Send',
+    closeButton: 'Close',
   },
   es: {
     title: 'Contáctanos',
@@ -52,7 +53,8 @@ export const formLabels: LanguageMap = {
     live: 'Ciudad',
     email: 'Email',
     phone: 'Teléfono',
-    button: 'Enviar',
+    sendButton: 'Enviar',
+    closeButton: 'Cerrar',
   },
 };
 

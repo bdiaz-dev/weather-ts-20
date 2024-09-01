@@ -8,6 +8,11 @@
     color: white;
   }
   
+  button {
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+  
 }
 
 #contactFormModal {
@@ -45,17 +50,17 @@
     left: 0;
     right: 0;
     
-    .closeModalButton {
-      background-color: rgb(51, 53, 54);
-      font-weight: 600;
-      position: fixed;
-      top: -5px;
-      right: -5px;
-      width: fit-content;
-      padding: 0 10px;
-      margin: 0;
-      border-radius: 50%;
-    }
+    // .closeModalButton {
+    //   background-color: rgb(51, 53, 54);
+    //   font-weight: 600;
+    //   position: fixed;
+    //   top: -5px;
+    //   right: -5px;
+    //   width: fit-content;
+    //   padding: 0 10px;
+    //   margin: 0;
+    //   border-radius: 50%;
+    // }
     
     input, label, button {
       width: 90%;
@@ -72,19 +77,30 @@
     }
 
     button {
-      background-color: rgba(255, 255, 255, 0);
-      border: 1px solid white;
+      // background-color: rgb(33, 72, 245); 
+      background-color: rgb(48, 133, 214);
+      border: 0;
+      color: white;
+      // border: 1px solid white;
       border-radius: 10px;
       padding: 2px 0;
       font-size: 1.5em;
-      font-weight: normal;
+      font-weight: 600;
       font-family: inherit;
       cursor: pointer;
       margin: 10px 0;
       &:disabled {
-        border-color: rgba(0, 0, 0, 0.096);
+        background-color: rgba(33, 72, 245, 0.075);
+        // border-color: rgba(0, 0, 0, 0.096);
       }
     }
+    
+    .closeModalButton {
+      // background-color: rgb(173, 0, 0);
+      background-color: rgb(221, 51, 51);
+      // border: 0;
+    }
+    
   }
 }
 
@@ -167,6 +183,10 @@
     align-items: center;
     justify-content: center;
     width: 100% ;
+    
+    img {
+      width: 50px;
+    }
   }
   #weatherDescription {
     font-size: 2em;
@@ -223,6 +243,7 @@
 
 #forecastContainer {
   @include cardStyle($background-color-card);
+  margin-bottom: 20px;
 
   h3 {
     margin-top: 0;
@@ -252,7 +273,7 @@
   
       img {
         margin: auto;
-        max-width: 50px;
+        max-width: 40px;
       }
   
       div {
@@ -345,13 +366,13 @@
       background-color: $background-color-card-light;
       border: 2px solid black;
     }
-    button {
-      background-color: rgba(255, 255, 255, 0);
-      border: 1px solid rgb(0, 0, 0);
-      &:disabled {
-        border-color: rgba(255, 255, 255, 0.096);
-      }
-    }
+    // button {
+    //   background-color: rgba(255, 255, 255, 0);
+    //   border: 1px solid rgb(0, 0, 0);
+    //   &:disabled {
+    //     border-color: rgba(255, 255, 255, 0.096);
+    //   }
+    // }
   }
   
   .frontDate {

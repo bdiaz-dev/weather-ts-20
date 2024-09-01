@@ -3,15 +3,15 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { CityProvider, useCity } from './context/CityContext';
 import { useActualWeather } from './hooks/data/useActualWeather';
 import { useForecastWeather } from './hooks/data/useForecastWeather';
-import WeatherMain from './components/actual_weather/WeatherMain';
-import Forecast from './components/forecast_weather/Forecast';
+import WeatherMain from './components/actualWeather/WeatherMain';
+import Forecast from './components/forecastWeather/Forecast';
 import ErrorAlert from './components/error/ErrorAlert';
 import MenuLayout from './components/nav/MenuLayout';
 import todayDate from './libs/todayDate';
 import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
 import Background from './components/background/Background';
-import ContactFormModal from './components/nav/ContactForm copy';
+import ContactFormModal from './components/contactForm/ContactFormModal';
 import { ContactModalProvider, useContactModal } from './context/ContactModalContext';
 
 function App() {
