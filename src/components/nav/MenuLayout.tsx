@@ -11,6 +11,34 @@ export default function MenuLayout() {
   return (
     <>
       <header>
+
+        {/* <button
+          type="button"
+          onClick={() => {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }}
+        >
+          light
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }}
+        >
+          dark
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            document.documentElement.setAttribute('data-theme', '');
+          }}
+        >
+          system
+        </button> */}
+
         <LangButtons />
       </header>
       <MenuButton openMenu={handleOpenMenu} buttonRef={buttonRef} />

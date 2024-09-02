@@ -1,9 +1,65 @@
-.frontDate {
-  @include textShine(black)
+// THEMES ------------------------------------
+
+@mixin light-theme {
+  // * {
+  //   color: black;
+  // }
+  .frontDate {
+    @include textShine(white);
+  }
+
+  #weatherMain {
+    @include cardStyle($background-color-card-light);
+    #weatherDetails {
+      li {
+        .detailsSVG {
+          filter: invert(0);
+        }
+      }
+    }
+  }
 }
 
+@mixin dark-theme {
+  // * {
+  //   color: white;
+  // }
+  .frontDate {
+    @include textShine(black);
+  }
+
+  #weatherMain {
+    @include cardStyle($background-color-card);
+    #weatherDetails {
+      li {
+        .detailsSVG {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
+
+// STYLES -------------------------------------
+
 #weatherMain {
-  @include cardStyle($background-color-card);
 
   .weatherTemp {
     font-size: 5em;
@@ -68,7 +124,7 @@
         margin: auto;
         margin-bottom: 10px;
         max-width: 30px;
-        filter: invert(1);
+        // filter: invert(1);
       }
     }
   }
@@ -77,22 +133,12 @@
   }
 }
 
-@include prefers-color-scheme(light) {
-  .frontDate {
-    @include textShine(white);
-  }
 
-  #weatherMain {
-    @include cardStyle($background-color-card-light);
-    #weatherDetails {
-      li {
-        .detailsSVG {
-          filter: invert(0);
-        }
-      }
-    }
-  }
-}
+
+
+
+
+// RESPONSIVENES
 
 @include media-query-second-breakpoint {
   #weatherMain {

@@ -1,5 +1,52 @@
+// MIXINS THEMES
+
+@mixin light-theme {
+  #forecastContainer {
+    @include cardStyle($background-color-card-light);
+    margin-bottom: 40px;
+    #forecastList {
+      li {
+        border: 1px solid black;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@mixin dark-theme {
+  #forecastContainer {
+    @include cardStyle($background-color-card);
+    margin-bottom: 40px;
+    #forecastList {
+      li {
+        border: 1px solid white;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
+// STYLES
+
 #forecastContainer {
-  @include cardStyle($background-color-card);
+  // @include cardStyle($background-color-card);
   margin-bottom: 40px;
 
   h3 {
@@ -20,7 +67,7 @@
       padding: 10px;
       min-width: 50px;
       position: relative;
-      border: 1px solid white;
+      // border: 1px solid white;
       border-radius: 15px;
       margin-bottom: 20px;
       

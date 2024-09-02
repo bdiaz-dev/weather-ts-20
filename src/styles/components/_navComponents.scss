@@ -1,29 +1,6 @@
-#cities {
-  list-style: none;
-  margin: 0 20px 5px 20px;
-  padding: 0;
-  text-align: start;
+// MIXINS THEMES
 
-  .cityActive {
-    outline: 5px solid white;
-  }
-
-  button {
-    @include navButtons(white);
-  }
-}
-
-.openModalButton {
-  @include navButtons(white);
-  margin:  10px auto;
-  max-width: 160px
-}
-
-.openMenu {
-  transform: translateX(0);
-}
-
-@include prefers-color-scheme(light) {
+@mixin light-theme {
   #cities {
     button {
       @include navButtons(black);
@@ -35,4 +12,50 @@
     margin:  10px auto;
     max-width: 160px
   }
+}
+
+@mixin dark-theme {
+  #cities {
+    button {
+      @include navButtons(white);
+    }
+  }
+  
+  .openModalButton {
+    @include navButtons(white);
+    margin:  10px auto;
+    max-width: 160px
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
+// STYLES ----------------------------------------------
+
+#cities {
+  list-style: none;
+  margin: 0 20px 5px 20px;
+  padding: 0;
+  text-align: start;
+
+  .cityActive {
+    outline: 5px solid white;
+  }
+}
+
+.openMenu {
+  transform: translateX(0);
 }

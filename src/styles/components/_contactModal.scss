@@ -1,3 +1,38 @@
+@mixin light-theme {
+    #contactFormModal {
+    background-color: $background-color-card-light;
+    form {
+      background-color: $background-color-card-light;
+      border: 2px solid black;
+    }
+  }
+}
+
+@mixin dark-theme {
+    #contactFormModal {
+    background-color: $background-color-card;
+    form {
+      background-color: $background-color-card;
+      border: 2px solid white;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
 #contactFormModal {
   z-index: 3000;
   position: fixed;
@@ -68,15 +103,7 @@
   }
 }
 
-@include prefers-color-scheme(light) {
-  #contactFormModal {
-    background-color: $background-color-card-light;
-    form {
-      background-color: $background-color-card-light;
-      border: 2px solid black;
-    }
-  }
-}
+
 
 @include media-query-first-breakpoint {
 

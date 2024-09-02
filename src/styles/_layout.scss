@@ -1,3 +1,32 @@
+
+
+@mixin light-theme {
+  nav, header {
+    background-color: $background-color-card-light;
+  }
+}
+
+@mixin dark-theme {
+  nav, header {
+    background-color: $background-color-card;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
 body {
   margin: 0;
   // background-image: url('../assets/new_cities/new_york/cloudy.jpg');
@@ -18,7 +47,7 @@ main {
 }
 
 header {
-  @include backgroundNav;
+  backdrop-filter: blur(20px);
   z-index: 1002;
   // background-color: $nav-background-color-dark;
   position: fixed;
@@ -37,7 +66,7 @@ header {
 
 nav {
   // background-color: $nav-background-color-dark;
-  @include backgroundNav;
+  backdrop-filter: blur(20px);
   grid-column: 1;
   display: flex;
   flex-direction: column;
@@ -66,7 +95,7 @@ section {
   width: 100%;
 }
 
-@include media-query(1100px) {
+@include media-query-first-breakpoint {
   main {
     display: inline-block;
   }
@@ -80,8 +109,4 @@ section {
   }
 }
 
-@include prefers-color-scheme(light) {
-  nav, header {
-    background-color: $background-color-card-light;
-  }
-}
+

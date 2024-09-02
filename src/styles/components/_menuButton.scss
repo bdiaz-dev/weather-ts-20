@@ -1,3 +1,38 @@
+// MIXINS THEMES
+
+@mixin light-theme {
+  #menuButton {
+    span {
+      background-color: black;
+    }
+  }
+}
+
+@mixin dark-theme {
+  #menuButton {
+    span {
+      background-color: white;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
+// STYLES ------------------------------------
+
 #menuButton {
   padding: 0;
   position: fixed;
@@ -18,7 +53,6 @@
     display: block;
     width: 42px;
     height: 4px;
-    background-color: white;
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -34,14 +68,6 @@
 
     span:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
-    }
-  }
-}
-
-@include prefers-color-scheme(light) {
-  #menuButton {
-    span {
-      background-color: black;
     }
   }
 }
