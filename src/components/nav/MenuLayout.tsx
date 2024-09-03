@@ -1,5 +1,6 @@
 import { useMenu } from '../../hooks/menu/useMenu';
 import LangButtons from '../interface/LangButtons';
+import ThemeButton from '../interface/ThemeButton';
 import MenuButton from './MenuButton';
 import Nav from './Nav';
 
@@ -12,32 +13,7 @@ export default function MenuLayout() {
     <>
       <header>
 
-        {/* <button
-          type="button"
-          onClick={() => {
-            document.documentElement.setAttribute('data-theme', 'light');
-          }}
-        >
-          light
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            document.documentElement.setAttribute('data-theme', 'dark');
-          }}
-        >
-          dark
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            document.documentElement.setAttribute('data-theme', '');
-          }}
-        >
-          system
-        </button> */}
+        {/* <ThemeButton /> */}
 
         <LangButtons />
       </header>

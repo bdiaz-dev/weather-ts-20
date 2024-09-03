@@ -94,3 +94,20 @@ interface NoOpacityParams {
   city: string,
   timeout: number
 }
+
+interface ThemesStrings {
+  name: string,
+  code: string,
+}
+
+interface ThemesObjects {
+  dark: ThemesStrings,
+  light: ThemesStrings,
+  system: ThemesStrings,
+}
+
+interface Themes {
+  [key: string]: ThemesObjects
+  en: ThemesObjects,
+  es: ThemesObjects,
+}
