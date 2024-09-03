@@ -1,21 +1,25 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { themes, handleThemes } from '../../libs/handleThemes';
 
-export default function ThemeButton() {
+export default function ThemeSelector() {
   const { lang } = useLanguage();
   return (
-    <div>
+    <select
+      id="themeSelector"
+      onChange={(e) => handleThemes(e.target.value)}
+    >
       {
         Object.values(themes[lang]).map((th) => (
-          <button
-            type="button"
+          <option
+            // type="button"
             key={th.code}
-            onClick={() => handleThemes(th.code)}
+            // onClick={() => handleThemes(th.code)}
+            value={th.code}
           >
             {th.name}
-          </button>
+          </option>
         ))
       }
-    </div>
+    </select>
   );
 }
