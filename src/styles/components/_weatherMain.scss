@@ -5,7 +5,7 @@
   //   color: black;
   // }
   .frontDate {
-    @include textShine(white);
+    @include textBorder(white);
   }
 
   #weatherMain {
@@ -25,7 +25,7 @@
   //   color: white;
   // }
   .frontDate {
-    @include textShine(black);
+    @include textBorder(black);
   }
 
   #weatherMain {
@@ -75,7 +75,7 @@
     
     img {
       width: 50px;
-      filter: drop-shadow(2px 4px 6px black);
+      @include imgShadow;
     }
   }
   #weatherDescription {

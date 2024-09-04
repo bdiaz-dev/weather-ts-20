@@ -1,13 +1,13 @@
 export const themes: Themes = {
   en: {
-    system: { name: 'system', code: '' },
-    dark: { name: 'dark', code: 'dark' },
-    light: { name: 'light', code: 'light' },
+    system: { name: 'System', code: '', icon: '💻' },
+    dark: { name: 'Dark', code: 'dark', icon: '🌙' },
+    light: { name: 'Light', code: 'light', icon: '☀️' },
   },
   es: {
-    system: { name: 'sistema', code: '' },
-    dark: { name: 'oscuro', code: 'dark' },
-    light: { name: 'claro', code: 'light' },
+    system: { name: 'Sistema', code: '', icon: '💻' },
+    dark: { name: 'Oscuro', code: 'dark', icon: '🌙' },
+    light: { name: 'Claro', code: 'light', icon: '☀️' },
   },
 };
 

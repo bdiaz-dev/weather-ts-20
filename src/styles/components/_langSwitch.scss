@@ -1,13 +1,43 @@
+@mixin dark-theme {
+  .langSwitch {
+    background-color: black; // rgba(184, 182, 182, 0.9);
+    border: 2px solid white;
+  }
+}
+
+@mixin light-theme {
+  .langSwitch {
+    background-color: white; // rgba(184, 182, 182, 0.9);
+    border: 2px solid black;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light-theme
+}
+@media (prefers-color-scheme: dark) {
+  @include dark-theme
+}
+
+[data-theme='light'] {
+  @include light-theme
+}
+
+[data-theme='dark'] {
+  @include dark-theme;
+}
+
 .langSwitch {
-  margin: 10px 30px 10px 0;
-  margin-right: calc(15px + env(safe-area-inset-right));
+  margin-bottom: 10px;
   width: 65px;
-  background-color: rgba(255, 255, 255, 0.4);
   display: flex;
   justify-content: flex-end;
   border-radius: 5px;
   padding: 4px 8px;
   cursor: pointer;
+  &:focus {
+    outline: 2px solid blue;
+  }
 
   .langHandle {
     width: 35px;

@@ -11,12 +11,10 @@ export default function ThemeSelector() {
       {
         Object.values(themes[lang]).map((th) => (
           <option
-            // type="button"
             key={th.code}
-            // onClick={() => handleThemes(th.code)}
             value={th.code}
           >
-            {th.name}
+            {`${th.icon} ${th.name}`}
           </option>
         ))
       }

@@ -35,12 +35,16 @@
   margin: 10px 0;
 }
 
-@mixin textShine($color) {
+@mixin textBorder($color) {
   text-shadow:
     1px 1px 0 $color,
     1px -1px 0 $color,
     -1px 1px 0 $color,
     -1px -1px 0 $color,
+}
+
+@mixin imgShadow {
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 

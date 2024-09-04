@@ -24,3 +24,14 @@ export const forecastTitle: ObjectEnEs = {
   en: 'Forecast Weather',
   es: 'Pronóstico',
 };
+
+export const configLabels: LanguageMap = {
+  en: {
+    langLabel: 'Language',
+    themeLabel: 'Theme',
+  },
+  es: {
+    langLabel: 'Idioma',
+    themeLabel: 'Tema',
+  },
+};

@@ -24,7 +24,6 @@ const showConfirm = async ({ text, thanks, lang }: ShowConfirmParams) => {
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire({
-        // title: '!',
         title: thanks,
         icon: 'success',
       });

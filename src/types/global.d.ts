@@ -70,6 +70,8 @@ interface LanguageStrings {
   closeButton?: string;
   question?: string;
   thanks?: string;
+  langLabel?: string;
+  themeLabel?: string;
 }
 
 interface LanguageMap {
@@ -98,6 +100,7 @@ interface NoOpacityParams {
 interface ThemesStrings {
   name: string,
   code: string,
+  icon: string,
 }
 
 interface ThemesObjects {
