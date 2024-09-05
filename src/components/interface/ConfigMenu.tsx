@@ -29,6 +29,7 @@ export default function ConfigMenu() {
   return (
     <div
       id="configMenuContainer"
+      ref={configRef}
     >
       <motion.button
         type="button"
@@ -47,7 +48,6 @@ export default function ConfigMenu() {
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
-              ref={configRef}
             >
               <p>{configLabels[lang].langLabel}</p>
               <LangButtons />

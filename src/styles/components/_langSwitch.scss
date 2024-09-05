@@ -42,7 +42,7 @@
   .langHandle {
     width: 35px;
     height: 35px;
-    background-image: url('/assets/esp.svg');
+    background-image: url('/assets/buttons/esp.svg');
     background-size: cover;
     border-radius: 5px;
     transition: background-image 0.2s;
@@ -51,7 +51,7 @@
   &[data-is-en="true"] {
     justify-content: flex-start;
     .langHandle {
-      background-image: url('/assets/eng.svg');
+      background-image: url('/assets/buttons/eng.svg');
       transition: background-image 0.2s;
     }
   }

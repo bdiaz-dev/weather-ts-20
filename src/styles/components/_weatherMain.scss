@@ -29,7 +29,7 @@
   }
 
   #weatherMain {
-    @include cardStyle($background-color-card);
+    @include cardStyle($background-color-card-dark);
     #weatherDetails {
       li {
         .detailsSVG {

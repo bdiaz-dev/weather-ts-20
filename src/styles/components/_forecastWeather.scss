@@ -16,7 +16,7 @@
 
 @mixin dark-theme {
   #forecastContainer {
-    @include cardStyle($background-color-card);
+    @include cardStyle($background-color-card-dark);
     margin-bottom: 40px;
     #forecastList {
       li {
@@ -78,7 +78,8 @@
       img {
         margin: 4px auto;
         max-width: 40px;
-        filter: drop-shadow(2px 4px 6px black);
+        // filter: drop-shadow(2px 4px 6px black);
+        @include imgShadow
       }
   
       div {
@@ -99,16 +100,16 @@
   }
 }
 
-@include prefers-color-scheme(light) {
-  #forecastContainer {
-    @include cardStyle($background-color-card-light);
-    margin-bottom: 40px;
-    #forecastList {
-      li {
-        border: 1px solid black;
-        border-radius: 15px;
-        margin-bottom: 20px;
-      }
-    }
-  }
-}
+// @include prefers-color-scheme(light) {
+//   #forecastContainer {
+//     @include cardStyle($background-color-card-light);
+//     margin-bottom: 40px;
+//     #forecastList {
+//       li {
+//         border: 1px solid black;
+//         border-radius: 15px;
+//         margin-bottom: 20px;
+//       }
+//     }
+//   }
+// }

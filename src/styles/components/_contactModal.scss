@@ -10,9 +10,9 @@
 
 @mixin dark-theme {
     #contactFormModal {
-    background-color: $background-color-card;
+    background-color: $background-color-card-dark;
     form {
-      background-color: $background-color-card;
+      background-color: $background-color-card-dark;
       border: 2px solid white;
     }
   }
@@ -43,7 +43,7 @@
   align-items: center;
   flex-grow: 1;
 
-  background-color: $background-color-card;
+  // background-color: $background-color-card;
   backdrop-filter: blur(5px);
 
   form {
@@ -58,9 +58,9 @@
     
     overflow-y: auto;
 
-    background-color: $background-color-card;
+    // background-color: $background-color-card;
     backdrop-filter: blur(2px);
-    border: 2px solid white;
+    // border: 2px solid white;
     border-radius: 20px;
 
     position: relative;

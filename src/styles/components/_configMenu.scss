@@ -47,8 +47,11 @@
   @include dark-theme;
 }
 
+// STYLES ------------------------
+
 #configMenuContainer {
-  
+  position: relative;
+  z-index: 5000;
   margin-right: calc(15px + env(safe-area-inset-right));
   position: relative;
   
@@ -82,8 +85,7 @@
       margin: 0;
     }
     select {
-      border: 2px solid white;
-      background-color: black;
+      font-weight: 600;
       border-radius: 7px;
       padding: 10px;
 

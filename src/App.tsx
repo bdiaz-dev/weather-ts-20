@@ -13,6 +13,7 @@ import LoadingMessage from './components/loading/LoadingMessage';
 import Background from './components/background/Background';
 import ContactFormModal from './components/contactForm/ContactFormModal';
 import { ContactModalProvider, useContactModal } from './context/ContactModalContext';
+import { setCityName } from './libs/cities';
 
 function App() {
   const { lang } = useLanguage();
@@ -37,7 +38,7 @@ function App() {
         weatherData?.main
         && (
           <PageHead
-            title={`${weatherData.main.description} ${weatherData.main.temp}`}
+            title={`${setCityName({ selectedCity: city, lang })} : ${weatherData.main.description} ${weatherData.main.temp}`}
             favicon={weatherData.main.icon}
           />
         )
