@@ -14,6 +14,7 @@ import Background from './components/background/Background';
 import ContactFormModal from './components/contactForm/ContactFormModal';
 import { ContactModalProvider, useContactModal } from './context/ContactModalContext';
 import { setCityName } from './libs/cities';
+import ConfigMenu from './components/interface/ConfigMenu';
 
 function App() {
   const { lang } = useLanguage();
@@ -24,7 +25,7 @@ function App() {
   const {
     formattedWeather: weatherData,
     error: weatherError,
-    loading: weatherLoading,
+    // loading: weatherLoading,
   } = useActualWeather({ city, lang });
   const {
     formattedForecast: forecastData,
@@ -44,8 +45,17 @@ function App() {
         )
       }
 
+      {/* <ConfigMenu /> */}
+
       {/* Form Modal */}
       {isContactModal && <ContactFormModal />}
+
+      {
+        !weatherData?.main && isFirstLoad
+        && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
+      }
+
+      {/* Background */}
       <Background
         city={weatherData?.main.cityFetch}
         code={weatherData?.main.code}
@@ -54,20 +64,20 @@ function App() {
         <MenuLayout />
 
         <article>
-          {
+          {/* {
             !weatherData?.main && isFirstLoad
             && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
-          }
+          } */}
           {/* {
             weatherData?.main && <h1>Weather App</h1>
           } */}
           {
             weatherData?.main && <h2 className="frontDate">{todayDate(lang)}</h2>
           }
-          {
+          {/* {
             weatherLoading && isFirstLoad && !weatherData
             && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
-          }
+          } */}
 
           {/* ACTUAL WEATHER - & ERROR */}
           {

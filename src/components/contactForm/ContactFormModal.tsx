@@ -26,7 +26,6 @@ export default function ContactFormModal() {
       <form
         onSubmit={handleSubmit}
       >
-
         <label htmlFor="nameInput">{formLabels[lang].name}</label>
         <input
           id="nameInput"

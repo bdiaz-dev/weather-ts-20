@@ -1,4 +1,5 @@
 import { useMenu } from '../../hooks/menu/useMenu';
+import HeaderLogo from '../header/HeaderLogo';
 import ConfigMenu from '../interface/ConfigMenu';
 import LangButtons from '../interface/LangButtons';
 import ThemeButton from '../interface/ThemeSelector';
@@ -18,6 +19,7 @@ export default function MenuLayout() {
 
         <LangButtons />
         {/* <ConfigMenu /> */}
+        {/* <HeaderLogo /> */}
       </header>
       <MenuButton openMenu={handleOpenMenu} buttonRef={buttonRef} />
       <Nav handleOpenMenu={handleOpenMenu} menuRef={menuRef} />

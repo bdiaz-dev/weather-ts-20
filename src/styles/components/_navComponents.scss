@@ -5,6 +5,9 @@
     button {
       @include navButtons(black);
     }
+    .cityActive {
+      background-color: rgb(177, 236, 235);
+    }
   }
   
   .openModalButton {
@@ -18,6 +21,9 @@
   #cities {
     button {
       @include navButtons(white);
+    }
+    .cityActive {
+      background-color: rgb(116, 116, 116);
     }
   }
   
@@ -50,9 +56,15 @@
   margin: 0 20px 5px 20px;
   padding: 0;
   text-align: start;
+  // button {
+  //   box-shadow: 2px 2px 5px black;
+  // }
 
   .cityActive {
-    outline: 5px solid white;
+    // background-color: rgb(116, 116, 116) !important;
+    // outline: 5px solid white;
+    // filter: blur(10px);
+    // background-color: adjust-color($color: #000000, $red: 1, $green: 2, $blue: 3, $hue: 0, $saturation: 0%, $lightness: 0%, $alpha: 1.0);
   }
 }
 

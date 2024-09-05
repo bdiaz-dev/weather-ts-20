@@ -4,6 +4,8 @@
 @import 'layout';
 
 // components
+@import 'components/loadingMessage';
+@import 'components/headerLogo';
 @import 'components/contactModal';
 @import 'components/swal2';
 @import 'components/weatherMain';

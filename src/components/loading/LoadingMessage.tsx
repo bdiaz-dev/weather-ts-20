@@ -8,9 +8,13 @@ export default function LoadingMessage({ setIsFirstLoad }: LoadingMessageParams)
   }, [setIsFirstLoad]);
   return (
     <div
-      style={{ padding: '10px', backgroundColor: 'blue', margin: 'auto' }}
+      id="loadingMessage"
+    // style={{ padding: '10px', margin: 'auto' }}
     >
-      <h1>Loading</h1>
+      <div>
+        <h1>Loading</h1>
+        <img src="/assets/loading/loading.svg" alt="" />
+      </div>
     </div>
   );
 }

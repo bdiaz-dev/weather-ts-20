@@ -1,9 +1,20 @@
+// MIXINS THEMES ----------------------------
+
 @mixin light-theme {
     #contactFormModal {
     background-color: $background-color-card-light;
     form {
       background-color: $background-color-card-light;
       border: 2px solid black;
+      input {
+        background-color: rgba(112, 128, 144, 0);
+        border: 0;
+        border-bottom: 2px solid black;
+        color: black;
+        &[type='date']::-webkit-calendar-picker-indicator {
+          color-scheme: light;
+        }
+      }
     }
   }
 }
@@ -14,6 +25,15 @@
     form {
       background-color: $background-color-card-dark;
       border: 2px solid white;
+      input {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        color: white;
+        &[type='date']::-webkit-calendar-picker-indicator {
+          color-scheme: dark;
+        }
+      }
     }
   }
 }
@@ -33,7 +53,11 @@
   @include dark-theme;
 }
 
+// STYLES ----------------------------------------
+
 #contactFormModal {
+  -webkit-appearance: none;
+  appearance: none;
   z-index: 3000;
   position: fixed;
   width: 100dvw;
@@ -44,6 +68,7 @@
   flex-grow: 1;
 
   // background-color: $background-color-card;
+  font-weight: 700;
   backdrop-filter: blur(5px);
 
   form {
@@ -78,6 +103,16 @@
     input {
       margin-bottom: 15px;
       padding: 8px 5px;
+      font-size: 1em;
+      &:focus {
+        border: none;
+        outline: none;
+        border-bottom: 2px solid blue;
+      }
+      &:active {
+        outline: none;
+        border: none;
+      }
     }
 
     button {
@@ -94,10 +129,19 @@
       &:disabled {
         background-color: rgba(33, 72, 245, 0.075);
       }
+      &:focus {
+        border: none;
+        outline: 3px solid blue;
+      }
+      &:active {
+        border: none;
+        outline: 3px solid blue;
+      }
     }
     
     .closeModalButton {
       background-color: rgb(221, 51, 51);
+
     }
     
   }

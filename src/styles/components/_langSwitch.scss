@@ -1,13 +1,13 @@
 @mixin dark-theme {
   .langSwitch {
-    background-color: black; // rgba(184, 182, 182, 0.9);
+    background-color: $background-color-config-elements-dark; // rgba(184, 182, 182, 0.9);
     border: 2px solid white;
   }
 }
 
 @mixin light-theme {
   .langSwitch {
-    background-color: white; // rgba(184, 182, 182, 0.9);
+    background-color: $background-color-config-elements-light; // rgba(184, 182, 182, 0.9);
     border: 2px solid black;
   }
 }
