@@ -1,34 +1,17 @@
-// MIXINS THEMES
+// THEMES -----------------------------------------
 
-@mixin light-theme {
+@mixin menuButton-theme ($theme: 'dark') {
   #menuButton {
     span {
-      background-color: black;
+      background-color: if($theme == 'dark', white, black);
     }
   }
 }
 
-@mixin dark-theme {
-  #menuButton {
-    span {
-      background-color: white;
-    }
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include menuButton-theme($theme);
   }
-}
-
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
 }
 
 // STYLES ------------------------------------

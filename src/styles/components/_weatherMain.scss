@@ -1,61 +1,28 @@
 // THEMES ------------------------------------
 
-@mixin light-theme {
-  // * {
-  //   color: black;
-  // }
+@mixin weatherMain-theme ($theme: 'dark') {
   .frontDate {
-    @include textBorder(white);
+    @include textBorder(if($theme == 'dark', black, white));
   }
 
   #weatherMain {
-    @include cardStyle($background-color-card-light);
+    $card: if($theme == 'dark', $background-color-card-dark, $background-color-card-light);
+    @include cardStyle($card);
     #weatherDetails {
       li {
         .detailsSVG {
-          filter: invert(0);
+          filter: if($theme == 'dark', invert(1), invert(0));
         }
       }
     }
   }
 }
 
-@mixin dark-theme {
-  // * {
-  //   color: white;
-  // }
-  .frontDate {
-    @include textBorder(black);
-  }
-
-  #weatherMain {
-    @include cardStyle($background-color-card-dark);
-    #weatherDetails {
-      li {
-        .detailsSVG {
-          filter: invert(1);
-        }
-      }
-    }
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include weatherMain-theme($theme);
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
-}
-
 
 // STYLES -------------------------------------
 

@@ -1,7 +1,12 @@
+// apply themes
+@import 'themes/applyThemes';
+
+// app
 @import 'variables';
 @import 'mixins';
 @import 'base';
 @import 'layout';
+
 
 // components
 @import 'components/loadingMessage';

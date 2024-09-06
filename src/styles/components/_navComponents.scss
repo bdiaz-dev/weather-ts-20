@@ -1,52 +1,26 @@
 // MIXINS THEMES
 
-@mixin light-theme {
+@mixin navComponents-theme ($theme: 'dark') {
   #cities {
     button {
-      @include navButtons(black);
+      @include navButtons(if($theme == 'dark', white, black));
     }
     .cityActive {
-      background-color: rgb(177, 236, 235);
+      background-color: if($theme == 'dark', black, rgb(177, 236, 235));
     }
   }
   
   .openModalButton {
-    @include navButtons(black);
+    @include navButtons(if($theme == 'dark', white, black));
     margin:  10px auto;
-    max-width: 160px
+    max-width: 160px;
   }
 }
 
-@mixin dark-theme {
-  #cities {
-    button {
-      @include navButtons(white);
-    }
-    .cityActive {
-      background-color: rgb(116, 116, 116);
-    }
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include navComponents-theme($theme);
   }
-  
-  .openModalButton {
-    @include navButtons(white);
-    margin:  10px auto;
-    max-width: 160px
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
 }
 
 // STYLES ----------------------------------------------
@@ -56,16 +30,6 @@
   margin: 0 20px 5px 20px;
   padding: 0;
   text-align: start;
-  // button {
-  //   box-shadow: 2px 2px 5px black;
-  // }
-
-  .cityActive {
-    // background-color: rgb(116, 116, 116) !important;
-    // outline: 5px solid white;
-    // filter: blur(10px);
-    // background-color: adjust-color($color: #000000, $red: 1, $green: 2, $blue: 3, $hue: 0, $saturation: 0%, $lightness: 0%, $alpha: 1.0);
-  }
 }
 
 .openMenu {

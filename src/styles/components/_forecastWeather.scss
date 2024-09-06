@@ -1,52 +1,29 @@
 // MIXINS THEMES
 
-@mixin light-theme {
+@mixin forecastWeather-theme ($theme: 'dark') {
   #forecastContainer {
-    @include cardStyle($background-color-card-light);
+    $card: if($theme == 'dark',
+      $background-color-card-dark,
+      $background-color-card-light);
+    @include cardStyle($card);
     margin-bottom: 40px;
     #forecastList {
       li {
-        border: 1px solid black;
-        border-radius: 15px;
-        margin-bottom: 20px;
+        border: 1px solid if($theme == 'dark', white, black);
       }
     }
   }
 }
 
-@mixin dark-theme {
-  #forecastContainer {
-    @include cardStyle($background-color-card-dark);
-    margin-bottom: 40px;
-    #forecastList {
-      li {
-        border: 1px solid white;
-        border-radius: 15px;
-        margin-bottom: 20px;
-      }
-    }
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include forecastWeather-theme($theme);
   }
-}
-
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
 }
 
 // STYLES
 
 #forecastContainer {
-  // @include cardStyle($background-color-card);
   margin-bottom: 40px;
 
   h3 {
@@ -78,7 +55,6 @@
       img {
         margin: 4px auto;
         max-width: 40px;
-        // filter: drop-shadow(2px 4px 6px black);
         @include imgShadow
       }
   
@@ -99,17 +75,3 @@
     @include noOpacity
   }
 }
-
-// @include prefers-color-scheme(light) {
-//   #forecastContainer {
-//     @include cardStyle($background-color-card-light);
-//     margin-bottom: 40px;
-//     #forecastList {
-//       li {
-//         border: 1px solid black;
-//         border-radius: 15px;
-//         margin-bottom: 20px;
-//       }
-//     }
-//   }
-// }

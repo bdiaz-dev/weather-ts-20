@@ -1,35 +1,24 @@
+// THEMES ------------------------------------------
 
-
-@mixin light-theme {
+@mixin layout-theme ($theme: 'dark') {
   nav, header {
-    background-color: $background-color-card-light;
+    background-color: if($theme == 'dark',
+      $background-color-card-dark,
+      $background-color-card-light
+      );
   }
 }
 
-@mixin dark-theme {
-  nav, header {
-    background-color: $background-color-card-dark;
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include layout-theme($theme);
   }
 }
 
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
-}
+// STYLE ---------------------------------------------
 
 body {
   margin: 0;
-  // background-image: url('../assets/new_cities/new_york/cloudy.jpg');
   background-size: cover;
   overflow-x: hidden;
 }

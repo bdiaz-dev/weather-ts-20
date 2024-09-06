@@ -1,30 +1,17 @@
-@mixin dark-theme {
+@mixin langSwitch-theme ($theme: 'dark') {
   .langSwitch {
-    background-color: $background-color-config-elements-dark; // rgba(184, 182, 182, 0.9);
-    border: 2px solid white;
+    background-color: 
+      if($theme == 'dark',
+        $background-color-config-elements-dark,
+        $background-color-config-elements-light);
+    border: 2px solid if($theme == 'dark', white, black);
   }
 }
 
-@mixin light-theme {
-  .langSwitch {
-    background-color: $background-color-config-elements-light; // rgba(184, 182, 182, 0.9);
-    border: 2px solid black;
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include langSwitch-theme($theme);
   }
-}
-
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
 }
 
 .langSwitch {
