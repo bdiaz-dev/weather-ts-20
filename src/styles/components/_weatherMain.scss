@@ -106,9 +106,12 @@
     #weatherDetails {
       display: grid; 
       grid-template-columns: repeat(2, 1fr);
+      margin-inline: auto;
       gap: 10px;
+      column-gap: 40px;
+      width: max-content;
       
-      @media (max-width: 600px) {
+      @media (max-width: 450px) {
         grid-template-columns: 1fr;
       }
 
@@ -116,11 +119,13 @@
         white-space: nowrap;
         width: auto;
         flex-direction: row;
-        gap: 20px;
-        margin: auto;
+        gap: 25px;
 
         div {
           align-items: start;
+          span {
+            font-size: 1em;
+          }
         }
 
         .detailsSVG {
