@@ -1,13 +1,9 @@
-import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useMenu } from '../../context/MenuContext';
 
-interface MenuButtonParams {
-  openMenu: VoidFunction,
-  buttonRef: React.RefObject<HTMLButtonElement>
-}
-
-export default function MenuButton({ openMenu, buttonRef }: MenuButtonParams) {
+export default function MenuButton() {
   const { lang } = useLanguage();
+  const { isMenu, setIsMenu } = useMenu();
   const ariaLabel: ObjectEnEs = {
     en: 'Toggle Menu',
     es: 'Mostrar/Ocultar Menú',
@@ -17,8 +13,8 @@ export default function MenuButton({ openMenu, buttonRef }: MenuButtonParams) {
       id="menuButton"
       type="button"
       aria-label={ariaLabel[lang]}
-      ref={buttonRef}
-      onClick={openMenu}
+      onClick={() => { setIsMenu(!isMenu); }}
+      className={isMenu ? 'open' : ''}
     >
       <span />
       <span />

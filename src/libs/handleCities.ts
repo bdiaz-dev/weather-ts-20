@@ -2,10 +2,10 @@ export const isActive = (ct: string, selectedCity: string) => ((selectedCity ===
 
 interface HandleClickParams {
   setCity: React.Dispatch<React.SetStateAction<string>>,
-  closeMenu: VoidFunction,
+  setIsMenu: React.Dispatch<React.SetStateAction<boolean>>,
   city: string,
 }
-export const handleClick = ({ city, closeMenu, setCity }: HandleClickParams) => {
+export const handleClick = ({ city, setIsMenu, setCity }: HandleClickParams) => {
   setCity(city);
-  closeMenu();
+  setIsMenu(false);
 };

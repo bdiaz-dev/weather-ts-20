@@ -16,6 +16,7 @@ import { ContactModalProvider } from './context/ContactModalContext';
 import { setCityName } from './libs/cities';
 import ConfigMenu from './components/interface/ConfigMenu';
 import ForecastDetails from './components/forecastWeather/ForecastDetails';
+import { MenuProvider } from './context/MenuContext';
 
 function App() {
   const { lang } = useLanguage();
@@ -141,7 +142,9 @@ export default function Root() {
     <LanguageProvider>
       <ContactModalProvider>
         <CityProvider>
-          <App />
+          <MenuProvider>
+            <App />
+          </MenuProvider>
         </CityProvider>
       </ContactModalProvider>
     </LanguageProvider>

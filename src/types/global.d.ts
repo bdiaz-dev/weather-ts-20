@@ -13,14 +13,20 @@ interface UseStateLangContext {
   lang: UseStateCityContext.city,
   setLang: UseStateCityContext.setCity,
 }
+
 interface UseStateModalContext {
   isContactModal: boolean,
   setIsContactModal: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-interface VoidFunction {
-  (data: void): void;
+interface UseStateMenuContext {
+  isMenu: boolean,
+  setIsMenu: React.Dispatch<React.SetStateAction<boolean>>,
 }
+
+// interface VoidFunction {
+//   (data: void): void;
+// }
 
 interface FetchParams {
   city: string,

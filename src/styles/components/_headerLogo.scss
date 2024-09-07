@@ -11,3 +11,13 @@
     width: 50px;
   }
 }
+
+@include media-query-second-breakpoint {
+  #headerLogo {
+    font-size: 0.8em;
+    gap: 5px;
+    img {
+      width: 35px;
+    }
+  }
+}
