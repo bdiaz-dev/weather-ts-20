@@ -1,30 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import LangButtons from './LangButtons';
 import ThemeSelector from './ThemeSelector';
 import { configLabels } from '../../libs/content';
 import { useLanguage } from '../../context/LanguageContext';
+import useClickOutside from '../../hooks/mouseEvent/useClickOutside';
 
 export default function ConfigMenu() {
   const { lang } = useLanguage();
   const [isConfigOpen, setIsConfigOpen] = useState(false);
-  const configRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        configRef.current
-        && event.target instanceof Node
-        && !configRef.current.contains(event.target)
-      ) {
-        setIsConfigOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [configRef]);
+  const configRef = useClickOutside<HTMLDivElement>(() => setIsConfigOpen(false));
 
   return (
     <div

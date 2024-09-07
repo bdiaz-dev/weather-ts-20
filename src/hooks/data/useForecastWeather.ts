@@ -17,7 +17,7 @@ const useForecastWeather = ({ city, lang }: FetchParams) => {
     const formatData = () => {
       const forecastWeather = forecastWeatherData.list.map((el: ForecastDataFetchList) => ({
         date: dateFix({ dt: el.dt_txt.substring(0, 10), lang }),
-        largeDate: dateFix({ dt: el.dt_txt.substring(0, 10), lang, getLarge: true }),
+        largeDate: el.dt_txt.substring(0, 10),
         hour: el.dt_txt.substring(11, 16),
         icon: `/assets/weather/${el.weather[0].icon}.svg`, // `${import.meta.env.VITE_ICONS_URL_BASE}${el.weather[0].icon}.png`,
         description: el.weather[0].description,

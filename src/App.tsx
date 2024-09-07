@@ -12,7 +12,7 @@ import PageHead from './components/helmet/PageHead';
 import LoadingMessage from './components/loading/LoadingMessage';
 import Background from './components/background/Background';
 import ContactFormModal from './components/contactForm/ContactFormModal';
-import { ContactModalProvider, useContactModal } from './context/ContactModalContext';
+import { ContactModalProvider } from './context/ContactModalContext';
 import { setCityName } from './libs/cities';
 import ConfigMenu from './components/interface/ConfigMenu';
 import ForecastDetails from './components/forecastWeather/ForecastDetails';
@@ -22,7 +22,6 @@ function App() {
   const { city } = useCity();
   const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
   const [forecastDetails, setForecastDetails] = useState<ForecastWeatherFormatObject | null>(null);
-  const { isContactModal } = useContactModal();
 
   const {
     formattedWeather: weatherData,

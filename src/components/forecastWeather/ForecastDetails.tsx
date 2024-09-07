@@ -1,5 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { detailsSVG } from '../../libs/content';
+import { detailsSVG, text } from '../../libs/content';
+import { setCityName } from '../../libs/cities';
+import { useLanguage } from '../../context/LanguageContext';
+import dateFix from '../../libs/datefix';
+import useClickOutside from '../../hooks/mouseEvent/useClickOutside';
 
 interface ForecastParams {
   forecastDetails: ForecastWeatherFormatObject | null,
@@ -7,6 +11,8 @@ interface ForecastParams {
 }
 
 export default function ForecastDetails({ forecastDetails, setForecastDetails }: ForecastParams) {
+  const { lang } = useLanguage();
+  const detailRef = useClickOutside<HTMLDivElement>(() => setForecastDetails(null));
   return (
     <AnimatePresence>
       {
@@ -23,9 +29,13 @@ export default function ForecastDetails({ forecastDetails, setForecastDetails }:
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
+              ref={detailRef}
             >
-              <h2>{forecastDetails.cityFetch}</h2>
-              <h2>{`${forecastDetails.largeDate} ${forecastDetails.hour}`}</h2>
+              <h2>{setCityName({ selectedCity: forecastDetails.cityFetch, lang })}</h2>
+              <h2>
+                {`${dateFix({ dt: forecastDetails.largeDate, lang, getLarge: true })} 
+                ${forecastDetails.hour}`}
+              </h2>
               <div className="forecastIconContainer">
                 <img src={forecastDetails.icon} alt="weather icon" />
                 <div>
@@ -37,28 +47,28 @@ export default function ForecastDetails({ forecastDetails, setForecastDetails }:
                 <div>
                   <img src={detailsSVG.pop} alt="pop icon" />
                   <div>
-                    <b>Precipitation Prob.</b>
+                    <b>{text[lang].pop}</b>
                     <span>{forecastDetails.pop}</span>
                   </div>
                 </div>
                 <div>
                   <img src={detailsSVG.wind} alt="wind icon" />
                   <div>
-                    <b>Wind</b>
+                    <b>{text[lang].wind}</b>
                     <span>{`${forecastDetails.windSpeed} - ${forecastDetails.direction}`}</span>
                   </div>
                 </div>
                 <div>
                   <img src={detailsSVG.feel} alt="feel icon" />
                   <div>
-                    <b>Feels Like</b>
+                    <b>{text[lang].feel}</b>
                     <span>{forecastDetails.feelsLike}</span>
                   </div>
                 </div>
                 <div>
                   <img src={detailsSVG.humidity} alt="humidity icon" />
                   <div>
-                    <b>Humidity</b>
+                    <b>{text[lang].humidity}</b>
                     <span>{forecastDetails.humidity}</span>
                   </div>
                 </div>

@@ -13,7 +13,7 @@
       
       .forecastDetailsContainer {
         img {
-          filter: if(theme == 'dark', invert(1), invert(0));
+          filter: if($theme == 'dark', invert(1), invert(0));
         }
       }
     }

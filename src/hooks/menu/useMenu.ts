@@ -1,12 +1,13 @@
 import {
-  useState, useEffect, useRef,
+  useState, useRef,
 } from 'react';
+// import useClickOutside from '../mouseEvent/useClickOutside';
 
 export function useMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const menuRef = useClickOutside<HTMLElement>(() => { handleOpenMenu() });
   const menuRef = useRef<HTMLElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const detailsRef = useRef<HTMLDetailsElement | null>(null);
 
   const handleOpenMenu = () => {
     if (menuRef.current) { menuRef.current.classList.toggle('openMenu'); }
@@ -14,13 +15,7 @@ export function useMenu() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    if (!isMenuOpen && detailsRef.current) {
-      detailsRef.current.open = false;
-    }
-  }, [isMenuOpen]);
-
   return {
-    isMenuOpen, menuRef, buttonRef, detailsRef, handleOpenMenu,
+    isMenuOpen, menuRef, buttonRef, handleOpenMenu, setIsMenuOpen,
   };
 }

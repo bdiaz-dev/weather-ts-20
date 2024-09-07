@@ -4,12 +4,14 @@ export const text: ContentTextMap = {
     wind: 'Wind',
     maxMin: 'Max/Min',
     humidity: 'Humidity',
+    pop: 'Precipitation Prob.',
   },
   es: {
     feel: 'Sensación térmica',
     wind: 'Viento',
     maxMin: 'Max/Min',
     humidity: 'Humedad',
+    pop: 'Probabilidad Precip.',
   },
 };
 
