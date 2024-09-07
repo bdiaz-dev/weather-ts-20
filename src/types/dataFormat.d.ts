@@ -18,18 +18,21 @@ interface ActualWeatherFormatDetails {
   humidity: string,
 }
 
-export interface ActualWeatherFormat {
+interface ActualWeatherFormat {
   [key: string]
   main: ActualWeatherFormatMain,
   details: ActualWeatherFormatDetails,
 }
 
 type ForecastWeatherFormatObject =
-Pick<ActualWeatherFormatMain, 'icon' | 'description' | 'temp'>
+Pick<ActualWeatherFormatMain, 'icon' | 'description' | 'temp' | 'cityFetch'>
+& Omit<ActualWeatherFormatDetails, 'maxTemp' | 'minTemp'>
 & {
   [key: string]
   hour: string,
   date: string,
+  largeDate: string,
+  pop: string,
 };
 
-export type ForecastWeatherFormat = ForecastWeatherFormatObject[];
+interface ForecastWeatherFormat extends Array<ForecastWeatherFormatObject> {}

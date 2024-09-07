@@ -44,6 +44,7 @@ interface ContentStrings {
   wind: string,
   maxMin: string,
   humidity: string,
+  pop?: string,
 }
 
 interface ContentTextMap {
@@ -55,6 +56,7 @@ interface ContentTextMap {
 interface DateFixParams {
   dt: string,
   lang: string,
+  getLarge?: boolean,
 }
 
 interface LanguageStrings {

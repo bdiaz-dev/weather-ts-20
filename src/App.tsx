@@ -15,11 +15,13 @@ import ContactFormModal from './components/contactForm/ContactFormModal';
 import { ContactModalProvider, useContactModal } from './context/ContactModalContext';
 import { setCityName } from './libs/cities';
 import ConfigMenu from './components/interface/ConfigMenu';
+import ForecastDetails from './components/forecastWeather/ForecastDetails';
 
 function App() {
   const { lang } = useLanguage();
   const { city } = useCity();
   const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
+  const [forecastDetails, setForecastDetails] = useState<ForecastWeatherFormatObject | null>(null);
   const { isContactModal } = useContactModal();
 
   const {
@@ -45,10 +47,16 @@ function App() {
         )
       }
 
-      {/* <ConfigMenu /> */}
+      {/* FORECAST DETAILS MODAL */}
+      <ForecastDetails
+        forecastDetails={forecastDetails}
+        setForecastDetails={setForecastDetails}
+      />
+
+      <ConfigMenu />
 
       {/* Form Modal */}
-      {isContactModal && <ContactFormModal />}
+      <ContactFormModal />
 
       {
         !weatherData?.main && isFirstLoad
@@ -118,6 +126,7 @@ function App() {
               <section>
                 <Forecast
                   forecastData={forecastData}
+                  setForecastDetails={setForecastDetails}
                 />
               </section>
             )

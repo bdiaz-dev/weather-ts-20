@@ -1,6 +1,5 @@
 import { detailsSVG, text } from '../../libs/content';
 import { useLanguage } from '../../context/LanguageContext';
-import { ActualWeatherFormatDetails } from '../../types/dataFormat';
 
 interface WeatherDetailsParams {weatherDetails: ActualWeatherFormatDetails}
 

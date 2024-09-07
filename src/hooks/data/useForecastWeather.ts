@@ -3,9 +3,9 @@
 
 import { useEffect, useState } from 'react';
 import { useForecastWeatherFetch } from '../fetch/useForecastWeatherFetch';
-import { ForecastWeatherFormat } from '../../types/dataFormat';
 import { ForecastDataFetchList } from '../../types/dataFetch';
 import dateFix from '../../libs/datefix';
+import windDirection from '../../libs/windDirection';
 
 const useForecastWeather = ({ city, lang }: FetchParams) => {
   const [formattedForecast, setFormattedForecast] = useState<ForecastWeatherFormat | []>([]);
@@ -17,10 +17,17 @@ const useForecastWeather = ({ city, lang }: FetchParams) => {
     const formatData = () => {
       const forecastWeather = forecastWeatherData.list.map((el: ForecastDataFetchList) => ({
         date: dateFix({ dt: el.dt_txt.substring(0, 10), lang }),
+        largeDate: dateFix({ dt: el.dt_txt.substring(0, 10), lang, getLarge: true }),
         hour: el.dt_txt.substring(11, 16),
         icon: `/assets/weather/${el.weather[0].icon}.svg`, // `${import.meta.env.VITE_ICONS_URL_BASE}${el.weather[0].icon}.png`,
         description: el.weather[0].description,
+        cityFetch: forecastWeatherData.city.name,
         temp: ` ${Math.round(el.main.temp)}º`,
+        pop: `${(el.pop) * 100} %`,
+        windSpeed: `${Math.round(el.wind.speed)}m/s`,
+        direction: windDirection(Number(el.wind.deg)),
+        feelsLike: `${Math.round(el.main.feels_like)}º`,
+        humidity: `${Math.round(el.main.humidity)} %`,
       }));
 
       setFormattedForecast(forecastWeather);

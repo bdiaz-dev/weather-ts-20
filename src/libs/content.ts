@@ -14,10 +14,11 @@ export const text: ContentTextMap = {
 };
 
 export const detailsSVG: ContentStrings = {
-  maxMin: 'https://www.svgrepo.com/show/51585/temperature.svg',
-  wind: 'https://www.svgrepo.com/show/532896/wind.svg',
-  feel: 'https://www.svgrepo.com/show/341126/temperature-feels-like.svg',
-  humidity: 'https://www.svgrepo.com/show/521708/humidity.svg',
+  maxMin: '/assets/icons/maxMin.svg',
+  wind: '/assets/icons/wind.svg',
+  feel: '/assets/icons/feel.svg',
+  humidity: '/assets/icons/humidity.svg',
+  pop: '/assets/icons/rain.svg',
 };
 
 export const forecastTitle: ObjectEnEs = {

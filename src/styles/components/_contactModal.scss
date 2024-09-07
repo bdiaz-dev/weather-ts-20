@@ -85,20 +85,14 @@
       }
       &:active {
         outline: none;
-        border: none;
       }
     }
 
     button {
-      background-color: rgb(48, 133, 214);
+      @include navButtons(white);
+      background-color: $modal-done-button-color;
       border: 0;
       color: white;
-      border-radius: 10px;
-      padding: 2px 0;
-      font-size: 1.5em;
-      font-weight: 600;
-      font-family: inherit;
-      cursor: pointer;
       margin: 10px 0;
       &:disabled {
         background-color: rgba(33, 72, 245, 0.075);
@@ -114,7 +108,7 @@
     }
     
     .closeModalButton {
-      background-color: rgb(221, 51, 51);
+      background-color: $modal-close-button-color;
 
     }
     

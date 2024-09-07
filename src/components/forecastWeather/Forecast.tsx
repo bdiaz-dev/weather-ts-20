@@ -1,15 +1,16 @@
+import { motion } from 'framer-motion';
 import { useCity } from '../../context/CityContext';
 import { useLanguage } from '../../context/LanguageContext';
 import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
 import { setCityName } from '../../libs/cities';
 import { forecastTitle } from '../../libs/content';
-import { ForecastWeatherFormat } from '../../types/dataFormat';
 
 interface ForecastParams {
-  forecastData: ForecastWeatherFormat
+  forecastData: ForecastWeatherFormat,
+  setForecastDetails: React.Dispatch<React.SetStateAction<ForecastWeatherFormatObject | null>>
 }
 
-export default function Forecast({ forecastData }: ForecastParams) {
+export default function Forecast({ forecastData, setForecastDetails }: ForecastParams) {
   const { lang } = useLanguage();
   const { city } = useCity();
   const cityInLang = setCityName({ selectedCity: city, lang });
@@ -21,7 +22,12 @@ export default function Forecast({ forecastData }: ForecastParams) {
       <h3>{forecastTitle[lang]}</h3>
       <ul id="forecastList">
         {forecastData.map((item) => (
-          <li key={`${item.date} ${item.hour}`}>
+          <motion.li
+            key={`${item.date} ${item.hour}`}
+            onTap={() => { setForecastDetails(item); }}
+            whileHover={{ scale: 0.95 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <div>
               <b>{item.date}</b>
               <b>{item.hour}</b>
@@ -30,7 +36,7 @@ export default function Forecast({ forecastData }: ForecastParams) {
               <img src={item.icon} alt="forecast weather icon" />
               <span>{item.temp}</span>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>

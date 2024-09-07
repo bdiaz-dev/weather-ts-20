@@ -1,0 +1,82 @@
+// THEMES -----------------------------------------------
+
+@mixin forecastDetails-theme ($theme: 'dark') {
+  #forecastDetailsCardContainer {
+    $card: if($theme == 'dark',
+      $background-color-card-dark,
+      $background-color-card-light);
+    background-color: $card;
+    backdrop-filter: blur(10px);
+    .forecastDetailsCard {
+      @include cardStyle($card);
+      opacity: 1;
+      
+      .forecastDetailsContainer {
+        img {
+          filter: if(theme == 'dark', invert(1), invert(0));
+        }
+      }
+    }
+  }
+}
+    
+    
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include forecastDetails-theme($theme);
+  }
+}
+
+// STYLES --------------------------------------------
+
+#forecastDetailsCardContainer {
+  z-index: 100;
+  position: fixed;
+  @include autoCenter;
+  height: 100%;
+  width: 100%;
+  @include flexConfig;
+  text-align: start;
+  .forecastDetailsCard {
+    width: max-content;
+    height: max-content;
+    
+    button {
+      @include navButtons(white);
+      background-color: $modal-close-button-color;
+      border: 0;
+      color: white;
+      margin-top: 20px;
+    }
+    
+    .forecastIconContainer {
+      margin: 20px 0;
+      @include flexConfig(row, center, start, 30px);
+      img {
+        width: 70px;
+        height: 70px;
+        @include imgShadow
+      }
+      
+      h3 {
+        margin: 0;
+      }
+    }
+    
+    .forecastDetailsContainer {
+      @include flexConfig(column, start, center, 15px);
+      
+      div {
+        @include flexConfig(row, center, center, 20px);
+        
+        img {
+          width: 40px;
+        }
+        
+        div {
+          @include flexConfig(column, start, center);
+        }
+      }
+    }
+  }
+}

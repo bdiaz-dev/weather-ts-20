@@ -17,9 +17,9 @@ export default function MenuLayout() {
 
         {/* <ThemeButton /> */}
 
-        <LangButtons />
+        {/* <LangButtons /> */}
         {/* <ConfigMenu /> */}
-        {/* <HeaderLogo /> */}
+        <HeaderLogo />
       </header>
       <MenuButton openMenu={handleOpenMenu} buttonRef={buttonRef} />
       <Nav handleOpenMenu={handleOpenMenu} menuRef={menuRef} />
