@@ -1,10 +1,13 @@
 // THEMES -----------------------------------------------
 
 @mixin forecastDetails-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
+  
+  $card: if($is-dark,
+    $background-color-card-dark,
+    $background-color-card-light);
+    
   #forecastDetailsCardContainer {
-    $card: if($theme == 'dark',
-      $background-color-card-dark,
-      $background-color-card-light);
     background-color: $card;
     backdrop-filter: blur(10px);
     .forecastDetailsCard {
@@ -13,7 +16,7 @@
       
       .forecastDetailsContainer {
         img {
-          filter: if($theme == 'dark', invert(1), invert(0));
+          filter: if($is-dark, invert(1), invert(0));
         }
       }
     }

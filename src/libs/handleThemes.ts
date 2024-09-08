@@ -14,3 +14,8 @@ export const themes: Themes = {
 export const handleThemes = (code: string) => {
   document.documentElement.setAttribute('data-theme', code);
 };
+
+export const getTheme = () => {
+  const theme = document.documentElement.getAttribute('data-theme');
+  return theme;
+};

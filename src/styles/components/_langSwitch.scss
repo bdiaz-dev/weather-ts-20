@@ -1,10 +1,11 @@
 @mixin langSwitch-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
   .langSwitch {
     background-color: 
-      if($theme == 'dark',
+      if($is-dark,
         $background-color-config-elements-dark,
         $background-color-config-elements-light);
-    border: 2px solid if($theme == 'dark', white, black);
+    border: 2px solid if($is-dark, white, black);
   }
 }
 

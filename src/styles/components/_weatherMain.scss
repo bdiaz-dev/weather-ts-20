@@ -1,17 +1,22 @@
 // THEMES ------------------------------------
 
 @mixin weatherMain-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
+
+  $card: if($is-dark,
+    $background-color-card-dark,
+    $background-color-card-light);
+
   .frontDate {
-    @include textBorder(if($theme == 'dark', black, white));
+    @include textBorder(if($is-dark, black, white));
   }
 
   #weatherMain {
-    $card: if($theme == 'dark', $background-color-card-dark, $background-color-card-light);
     @include cardStyle($card);
     #weatherDetails {
       li {
         .detailsSVG {
-          filter: if($theme == 'dark', invert(1), invert(0));
+          filter: if($is-dark, invert(1), invert(0));
         }
       }
     }

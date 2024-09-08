@@ -1,17 +1,19 @@
 // MIXINS THEMES
 
 @mixin navComponents-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
+
   #cities {
     button {
-      @include navButtons(if($theme == 'dark', white, black));
+      @include navButtons(if($is-dark, white, black));
     }
     .cityActive {
-      background-color: if($theme == 'dark', black, rgb(177, 236, 235));
+      background-color: if($is-dark, black, rgb(177, 236, 235));
     }
   }
   
   .openModalButton {
-    @include navButtons(if($theme == 'dark', white, black));
+    @include navButtons(if($is-dark, white, black));
     margin:  10px auto;
     max-width: 160px;
   }

@@ -1,11 +1,13 @@
 // MIXINS THEMES
 
 @mixin swal2-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
+  
   .swal2-container {
     .swal2-popup {
-      outline: 2px solid if($theme == 'dark', white, black);
-      background-color: if($theme == 'dark', black, white);
-      color: if($theme == 'dark', white, black);
+      outline: 2px solid if($is-dark, white, black);
+      background-color: if($is-dark, black, white);
+      color: if($is-dark, white, black);
     } 
   }
 }
@@ -26,4 +28,3 @@
     font-size: 1.2em;
   }
 }
-

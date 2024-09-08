@@ -8,4 +8,8 @@ interface HandleClickParams {
 export const handleClick = ({ city, setIsMenu, setCity }: HandleClickParams) => {
   setCity(city);
   setIsMenu(false);
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 };

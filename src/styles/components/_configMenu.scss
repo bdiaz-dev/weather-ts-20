@@ -1,59 +1,40 @@
-@mixin dark-theme {
+@mixin configMenu-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
+
+  $card: if($is-dark,
+    $background-color-config-dark,
+    $background-color-config-light);
+  $elements: if($is-dark,
+    $background-color-config-elements-dark,
+    $background-color-config-elements-light);
+  
   #configMenuContainer {
     button img {
-        filter: invert(1)
+        filter: if($is-dark, invert(1), invert(0))
       }
     
     #configMenu {
-      @include cardStyle($background-color-config-dark);
+      @include cardStyle($card);
       opacity: 1;
       select {
-        border: 2px solid white;
-        background-color: $background-color-config-elements-dark;
+        border: 2px solid if($is-dark, white, black);
+        background-color: $elements;
       }
     }
   }
 }
 
-@mixin light-theme {
-  #configMenuContainer {
-    button img {
-        filter: invert(0)
-      }
-    
-    #configMenu {
-      @include cardStyle($background-color-config-light);
-      opacity: 1;
-      select {
-        border: 2px solid black;
-        background-color: $background-color-config-elements-light;
-      }
-    }
+@each $theme in ('dark', 'light') {
+  @include applyThemes($theme) {
+    @include configMenu-theme($theme);
   }
-}
-
-@media (prefers-color-scheme: light) {
-  @include light-theme
-}
-@media (prefers-color-scheme: dark) {
-  @include dark-theme
-}
-
-[data-theme='light'] {
-  @include light-theme
-}
-
-[data-theme='dark'] {
-  @include dark-theme;
 }
 
 // STYLES ------------------------
 
 #configMenuContainer {
   z-index: 5000;
-  // margin-right: calc(15px + env(safe-area-inset-right));
   position: fixed;
-  // right: calc(10px + env(safe-area-inset-right));
   right: 5px;
   top: 10px;
   
@@ -62,7 +43,6 @@
     border: 0;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    // @include imgShadow;
     
     img {
       width: 35px;
@@ -73,11 +53,8 @@
     transform-origin: top;
     font-weight: 600;
     line-height: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+    @include flexConfig(column, end, center, 10px);
     position: absolute;
-    gap: 10px;
     right: 10px;
     top: 70px;
     width: 120px;

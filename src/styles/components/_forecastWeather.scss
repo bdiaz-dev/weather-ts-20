@@ -1,15 +1,18 @@
 // MIXINS THEMES
 
 @mixin forecastWeather-theme ($theme: 'dark') {
+  $is-dark: if($theme == 'dark', true, false);
+  
+  $card: if($is-dark,
+    $background-color-card-dark,
+    $background-color-card-light);
+
   #forecastContainer {
-    $card: if($theme == 'dark',
-      $background-color-card-dark,
-      $background-color-card-light);
     @include cardStyle($card);
     margin-bottom: 40px;
     #forecastList {
       li {
-        border: 1px solid if($theme == 'dark', white, black);
+        border: 1px solid if($is-dark, white, black);
       }
     }
   }
