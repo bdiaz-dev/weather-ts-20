@@ -6,7 +6,6 @@ import { useLanguage } from '@context/LanguageContext';
 import { useButtonTitle } from '@hooks/contactForm/useButtonTitle';
 import { handleFormSend } from '@libs/contactFormUtils';
 import { useContactModal } from '@context/ContactModalContext';
-import useClickOutside from '@hooks/mouseEvent/useClickOutside';
 
 export default function ContactFormModal() {
   const { lang } = useLanguage();
@@ -14,7 +13,6 @@ export default function ContactFormModal() {
   const sendTitle = useButtonTitle(lang, buttonDisabled);
   const emailRef = useRef<HTMLInputElement | null>(null);
   const { isContactModal, setIsContactModal } = useContactModal();
-  const formRef = useClickOutside<HTMLFormElement>(() => setIsContactModal(false));
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -39,7 +37,6 @@ export default function ContactFormModal() {
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
-              ref={formRef}
             >
               <label htmlFor="nameInput">{formLabels[lang].name}</label>
               <input
@@ -91,21 +88,10 @@ export default function ContactFormModal() {
                 placeholder={placeholders.phone}
               />
 
-              {/* <button
-            id="formSendButton"
-            type="submit"
-            disabled={buttonDisabled}
-            style={{ borderColor: buttonDisabled ? '#1a1a1a' : 'white' }}
-            title={sendTitle}
-            className="formButton"
-            >
-            {formLabels[lang].button}
-            </button> */}
               <motion.button
                 id="formSendButton"
                 type="submit"
                 disabled={buttonDisabled}
-                // style={{ borderColor: buttonDisabled ? '#1a1a1a' : 'white' }}
                 title={sendTitle}
                 className="formButton"
                 whileHover={{ scale: !buttonDisabled ? 1.1 : 1 }}

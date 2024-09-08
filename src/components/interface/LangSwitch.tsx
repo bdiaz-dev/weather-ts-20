@@ -23,7 +23,6 @@ export default function LangSwitch() {
   };
 
   return (
-    // <div id="langButtonsContainer">
     <div
       className="langSwitch"
       data-is-en={lang === 'en'}

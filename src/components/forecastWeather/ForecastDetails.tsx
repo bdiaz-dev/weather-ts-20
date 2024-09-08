@@ -80,7 +80,7 @@ export default function ForecastDetails({ forecastDetails, setForecastDetails }:
                 onClick={() => { setForecastDetails(null); }}
                 type="button"
               >
-                Close
+                {lang === 'en' ? 'Close' : 'Cerrar'}
               </motion.button>
             </motion.div>
           </motion.div>
