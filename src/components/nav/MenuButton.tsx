@@ -1,5 +1,5 @@
-import { useLanguage } from '../../context/LanguageContext';
-import { useMenu } from '../../context/MenuContext';
+import { useLanguage } from '@context/LanguageContext';
+import { useMenu } from '@context/MenuContext';
 
 export default function MenuButton() {
   const { lang } = useLanguage();

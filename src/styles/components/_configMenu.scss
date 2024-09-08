@@ -67,6 +67,8 @@
       font-weight: 600;
       border-radius: 7px;
       padding: 10px;
+      -webkit-appearance: none;
+      appearance: none;
 
       &:focus {
         outline: 2px solid blue;

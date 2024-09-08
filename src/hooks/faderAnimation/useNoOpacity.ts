@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 
 const useNoOpacity = <T extends HTMLElement>({ data, city, timeout }: NoOpacityParams) => {
   const elementRef = useRef<T | null>(null);
-  const [lastData, setLastData] = useState();
+  const [lastData, setLastData] = useState<ActualWeatherFormat
+  | ForecastWeatherFormat>();
 
   useEffect(() => {
     const element = elementRef.current;

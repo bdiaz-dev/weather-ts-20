@@ -71,6 +71,9 @@
       padding: 8px 5px;
       font-size: 1em;
       background-color: transparent;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
       &:focus {
         border: none;
         outline: none;

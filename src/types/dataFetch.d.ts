@@ -104,12 +104,12 @@ interface ForecastDataFetchListObject {
   dt_txt: string,
 }
 
-export interface ForecastDataFetchList {
+interface ForecastDataFetchList {
   [key: string]
   list: ForecastDataFetchListObject[]
 }
 
-export interface ForecastDataFetch {
+interface ForecastDataFetch {
   [key: string]
   cod: number,
   message: number,

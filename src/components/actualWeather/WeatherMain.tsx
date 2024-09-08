@@ -1,8 +1,7 @@
-import { useCity } from '../../context/CityContext';
-import { useLanguage } from '../../context/LanguageContext';
-import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
-import { setCityName } from '../../libs/cities';
-import { ActualWeatherFormat } from '../../types/dataFormat';
+import { useCity } from '@context/CityContext';
+import { useLanguage } from '@context/LanguageContext';
+import useNoOpacity from '@hooks/faderAnimation/useNoOpacity';
+import { setCityName } from '@libs/cities';
 import WeatherDetails from './WeatherDetails';
 
 interface WeatherMainParams { weatherData: ActualWeatherFormat }

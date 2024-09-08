@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
+import useClickOutside from '@hooks/mouseEvent/useClickOutside';
+import { useContactModal } from '@context/ContactModalContext';
+import { formLabels } from '@libs/formText';
+import { useLanguage } from '@context/LanguageContext';
+import { useMenu } from '@context/MenuContext';
 import Cities from './Cities';
-import { useContactModal } from '../../context/ContactModalContext';
-import { formLabels } from '../../libs/formText';
-import { useLanguage } from '../../context/LanguageContext';
-import { useMenu } from '../../context/MenuContext';
-import useClickOutside from '../../hooks/mouseEvent/useClickOutside';
 import MenuButton from './MenuButton';
 
 export default function Nav() {

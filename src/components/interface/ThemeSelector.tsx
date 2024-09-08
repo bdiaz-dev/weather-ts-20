@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useLanguage } from '../../context/LanguageContext';
-import { themes, handleThemes, getTheme } from '../../libs/handleThemes';
+import { useLanguage } from '@context/LanguageContext';
+import { themes, handleThemes, getTheme } from '@libs/handleThemes';
 
 export default function ThemeSelector() {
   const { lang } = useLanguage();
@@ -15,6 +15,7 @@ export default function ThemeSelector() {
         handleThemes(th);
       }}
       value={actualTheme}
+      data-testid="themeSelector"
     >
       {
         Object.values(themes[lang]).map((th) => (

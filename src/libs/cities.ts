@@ -9,24 +9,15 @@ type City = {
 
 const cities: City[] = [
   {
-    name: {
-      en: 'Rome',
-      es: 'Roma',
-    },
+    name: { en: 'Rome', es: 'Roma' },
     country: 'IT',
   },
   {
-    name: {
-      en: 'New York',
-      es: 'Nueva York',
-    },
+    name: { en: 'New York', es: 'Nueva York' },
     country: 'US',
   },
   {
-    name: {
-      en: 'London',
-      es: 'Londres',
-    },
+    name: { en: 'London', es: 'Londres' },
     country: 'GB',
   },
 ];

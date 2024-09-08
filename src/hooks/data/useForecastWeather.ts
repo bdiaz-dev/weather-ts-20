@@ -2,10 +2,10 @@
 // dependency lang removed on useEffect, it cause's innecesary rerenders
 
 import { useEffect, useState } from 'react';
+import windDirection from '@libs/windDirection';
+import dateFix from '@libs/datefix';
 import { useForecastWeatherFetch } from '../fetch/useForecastWeatherFetch';
 import { ForecastDataFetchList } from '../../types/dataFetch';
-import dateFix from '../../libs/datefix';
-import windDirection from '../../libs/windDirection';
 
 const useForecastWeather = ({ city, lang }: FetchParams) => {
   const [formattedForecast, setFormattedForecast] = useState<ForecastWeatherFormat | []>([]);

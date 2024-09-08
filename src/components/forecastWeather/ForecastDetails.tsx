@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { detailsSVG, text } from '../../libs/content';
-import { setCityName } from '../../libs/cities';
-import { useLanguage } from '../../context/LanguageContext';
-import dateFix from '../../libs/datefix';
-import useClickOutside from '../../hooks/mouseEvent/useClickOutside';
+import { detailsSVG, text } from '@libs/content';
+import { setCityName } from '@libs/cities';
+import { useLanguage } from '@context/LanguageContext';
+import dateFix from '@libs/datefix';
+import useClickOutside from '@hooks/mouseEvent/useClickOutside';
 
 interface ForecastParams {
   forecastDetails: ForecastWeatherFormatObject | null,
@@ -20,6 +20,7 @@ export default function ForecastDetails({ forecastDetails, setForecastDetails }:
         && (
           <motion.div
             id="forecastDetailsCardContainer"
+            data-testid="forecastDetailsContainer"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

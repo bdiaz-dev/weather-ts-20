@@ -1,12 +1,12 @@
 import { FormEvent, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useFormState } from '../../hooks/contactForm/useFormState';
-import { formLabels, placeholders } from '../../libs/formText';
-import { useLanguage } from '../../context/LanguageContext';
-import { useButtonTitle } from '../../hooks/contactForm/useButtonTitle';
-import { handleFormSend } from '../../libs/contactFormUtils';
-import { useContactModal } from '../../context/ContactModalContext';
-import useClickOutside from '../../hooks/mouseEvent/useClickOutside';
+import { useFormState } from '@hooks/contactForm/useFormState';
+import { formLabels, placeholders } from '@libs/formText';
+import { useLanguage } from '@context/LanguageContext';
+import { useButtonTitle } from '@hooks/contactForm/useButtonTitle';
+import { handleFormSend } from '@libs/contactFormUtils';
+import { useContactModal } from '@context/ContactModalContext';
+import useClickOutside from '@hooks/mouseEvent/useClickOutside';
 
 export default function ContactFormModal() {
   const { lang } = useLanguage();

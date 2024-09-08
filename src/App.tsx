@@ -1,22 +1,22 @@
 import { useState } from 'react';
-import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import { CityProvider, useCity } from './context/CityContext';
-import { useActualWeather } from './hooks/data/useActualWeather';
-import { useForecastWeather } from './hooks/data/useForecastWeather';
-import WeatherMain from './components/actualWeather/WeatherMain';
-import Forecast from './components/forecastWeather/Forecast';
-import ErrorAlert from './components/error/ErrorAlert';
-import MenuLayout from './components/nav/MenuLayout';
-import todayDate from './libs/todayDate';
-import PageHead from './components/helmet/PageHead';
-import LoadingMessage from './components/loading/LoadingMessage';
-import Background from './components/background/Background';
-import ContactFormModal from './components/contactForm/ContactFormModal';
-import { ContactModalProvider } from './context/ContactModalContext';
-import { setCityName } from './libs/cities';
-import ConfigMenu from './components/interface/ConfigMenu';
-import ForecastDetails from './components/forecastWeather/ForecastDetails';
-import { MenuProvider } from './context/MenuContext';
+import { LanguageProvider, useLanguage } from '@context/LanguageContext';
+import { CityProvider, useCity } from '@context/CityContext';
+import { useActualWeather } from '@hooks/data/useActualWeather';
+import { useForecastWeather } from '@hooks/data/useForecastWeather';
+import WeatherMain from '@components/actualWeather/WeatherMain';
+import Forecast from '@components/forecastWeather/Forecast';
+import ErrorAlert from '@components/error/ErrorAlert';
+import MenuLayout from '@components/nav/MenuLayout';
+import todayDate from '@libs/todayDate';
+import PageHead from '@components/helmet/PageHead';
+import LoadingMessage from '@components/loading/LoadingMessage';
+import Background from '@components/background/Background';
+import ContactFormModal from '@components/contactForm/ContactFormModal';
+import { ContactModalProvider } from '@context/ContactModalContext';
+import { setCityName } from '@libs/cities';
+import ConfigMenu from '@components/interface/ConfigMenu';
+import ForecastDetails from '@components/forecastWeather/ForecastDetails';
+import { MenuProvider } from '@context/MenuContext';
 
 function App() {
   const { lang } = useLanguage();
@@ -27,7 +27,6 @@ function App() {
   const {
     formattedWeather: weatherData,
     error: weatherError,
-    // loading: weatherLoading,
   } = useActualWeather({ city, lang });
   const {
     formattedForecast: forecastData,
@@ -36,7 +35,7 @@ function App() {
 
   return (
     <>
-      {/* DYNAMIC TITLE AND FAVICON */}
+      {/* Dynamic title and favicon */}
       {
         weatherData?.main
         && (
@@ -47,47 +46,41 @@ function App() {
         )
       }
 
-      {/* FORECAST DETAILS MODAL */}
+      {/* Forecast Details Modal */}
       <ForecastDetails
         forecastDetails={forecastDetails}
         setForecastDetails={setForecastDetails}
       />
 
+      {/* Config Menu */}
       <ConfigMenu />
 
       {/* Form Modal */}
       <ContactFormModal />
 
+      {/* Loading Message */}
       {
         !weatherData?.main && isFirstLoad
         && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
       }
 
-      {/* Background */}
+      {/* Background container */}
       <Background
         city={weatherData?.main.cityFetch}
         code={weatherData?.main.code}
       >
-        {/* MENU WITH CITIES AND LANG BUTTONS */}
+
+        {/* Menu and header layout */}
         <MenuLayout />
 
         <article>
-          {/* {
-            !weatherData?.main && isFirstLoad
-            && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
-          } */}
-          {/* {
-            weatherData?.main && <h1>Weather App</h1>
-          } */}
+
+          {/* Front Date */}
           {
             weatherData?.main && <h2 className="frontDate">{todayDate(lang)}</h2>
           }
-          {/* {
-            weatherLoading && isFirstLoad && !weatherData
-            && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
-          } */}
 
-          {/* ACTUAL WEATHER - & ERROR */}
+          {/* Error message from Weather Main */}
           {
             weatherError
             && (
@@ -96,21 +89,20 @@ function App() {
               </ErrorAlert>
             )
           }
+
+          {/* Actual weather */}
           {
-            weatherData?.main && !weatherError // && !weatherLoading
+            weatherData?.main && !weatherError
             && (
               <section>
                 <WeatherMain
                   weatherData={weatherData}
                 />
-                {/* <WeatherDetails
-                  weatherDetails={weatherData.details}
-                /> */}
               </section>
             )
           }
 
-          {/* FORECAST WEATHER - & ERROR */}
+          {/* Error message from Forecast */}
           {
             forecastError
             && (
@@ -120,6 +112,7 @@ function App() {
             )
           }
 
+          {/* Forecast weather */}
           {
             forecastData && !forecastError // && !forecastLoading
             && (

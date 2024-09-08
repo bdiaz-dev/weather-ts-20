@@ -1,5 +1,5 @@
-import { detailsSVG, text } from '../../libs/content';
-import { useLanguage } from '../../context/LanguageContext';
+import { detailsSVG, text } from '@libs/content';
+import { useLanguage } from '@context/LanguageContext';
 
 interface WeatherDetailsParams { weatherDetails: ActualWeatherFormatDetails }
 

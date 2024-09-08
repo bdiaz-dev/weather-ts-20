@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import LangButtons from './LangButtons';
+import useClickOutside from '@hooks/mouseEvent/useClickOutside';
+import { configLabels } from '@libs/content';
+import { useLanguage } from '@context/LanguageContext';
+import LangSwitch from './LangSwitch';
 import ThemeSelector from './ThemeSelector';
-import { configLabels } from '../../libs/content';
-import { useLanguage } from '../../context/LanguageContext';
-import useClickOutside from '../../hooks/mouseEvent/useClickOutside';
 
 export default function ConfigMenu() {
   const { lang } = useLanguage();
@@ -21,8 +21,9 @@ export default function ConfigMenu() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsConfigOpen(!isConfigOpen)}
+        data-testid="configButton"
       >
-        <img src="/assets/buttons/config.svg" alt="" />
+        <img src="/assets/buttons/config.svg" alt="config button" />
       </motion.button>
       <AnimatePresence>
         {
@@ -35,7 +36,7 @@ export default function ConfigMenu() {
               exit={{ scaleY: 0 }}
             >
               <p>{configLabels[lang].langLabel}</p>
-              <LangButtons />
+              <LangSwitch />
               <p>{configLabels[lang].themeLabel}</p>
               <ThemeSelector />
             </motion.div>

@@ -1,8 +1,8 @@
 import { KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from '@context/LanguageContext';
 
-export default function LangButtons() {
+export default function LangSwitch() {
   const { lang, setLang } = useLanguage();
 
   const toggleSwitch = () => {
@@ -32,6 +32,7 @@ export default function LangButtons() {
       aria-checked
       role="switch"
       onKeyUp={(e) => handleKey(e)}
+      data-testid="langSwitch"
     >
       <motion.div className="langHandle" layout transition={spring} />
     </div>

@@ -16,7 +16,6 @@ export const validateForm = ({ emailRef, phone, lang }: ValidateParams) => {
     Swal.fire({
       icon: 'error',
       title: text,
-      // text: "Something went wrong!",
     });
   };
 

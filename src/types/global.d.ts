@@ -100,7 +100,7 @@ interface MessagesMap {
 }
 
 interface NoOpacityParams {
-  data: ActualWeatherFormatMain | ActualWeatherFormatDetails | ForecastWeatherFormat,
+  data: ActualWeatherFormat | ForecastWeatherFormat,
   city: string,
   timeout: number
 }

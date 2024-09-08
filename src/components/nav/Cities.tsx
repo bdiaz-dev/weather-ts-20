@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../../context/LanguageContext';
-import { handleClick, isActive } from '../../libs/handleCities';
-import { useCity } from '../../context/CityContext';
-import { cities } from '../../libs/cities';
-import { useMenu } from '../../context/MenuContext';
+import { useLanguage } from '@context/LanguageContext';
+import { handleClick, isActive } from '@libs/handleCities';
+import { useCity } from '@context/CityContext';
+import { cities } from '@libs/cities';
+import { useMenu } from '@context/MenuContext';
 
 // interface CitiesParams { closeMenu: VoidFunction }
 export default function Cities() {

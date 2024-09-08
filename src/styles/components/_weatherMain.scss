@@ -114,9 +114,13 @@
       margin-inline: auto;
       gap: 10px;
       column-gap: 40px;
+      @media (max-width: 600px) {
+        column-gap: 5px;
+      }
+      
       width: max-content;
       
-      @media (max-width: 450px) {
+      @media (max-width: 537px) {
         grid-template-columns: 1fr;
       }
 

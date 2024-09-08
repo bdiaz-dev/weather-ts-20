@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { getCountry } from '@libs/cities';
 import { ForecastDataFetch } from '../../types/dataFetch';
-import { getCountry } from '../../libs/cities';
 
 const useForecastWeatherFetch = ({ city, lang }: FetchParams) => {
   const urlBase = import.meta.env.VITE_URL_BASE;

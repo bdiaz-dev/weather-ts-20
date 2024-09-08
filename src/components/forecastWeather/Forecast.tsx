@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { useCity } from '../../context/CityContext';
-import { useLanguage } from '../../context/LanguageContext';
-import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
-import { setCityName } from '../../libs/cities';
-import { forecastTitle } from '../../libs/content';
+import { useCity } from '@context/CityContext';
+import { useLanguage } from '@context/LanguageContext';
+import useNoOpacity from '@hooks/faderAnimation/useNoOpacity';
+import { setCityName } from '@libs/cities';
+import { forecastTitle } from '@libs/content';
 
 interface ForecastParams {
   forecastData: ForecastWeatherFormat,
@@ -27,6 +27,7 @@ export default function Forecast({ forecastData, setForecastDetails }: ForecastP
             onTap={() => { setForecastDetails(item); }}
             whileHover={{ scale: 0.95 }}
             whileTap={{ scale: 0.9 }}
+            data-testid="forecastElement"
           >
             <div>
               <b>{item.date}</b>
