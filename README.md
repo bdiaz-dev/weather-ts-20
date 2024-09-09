@@ -39,7 +39,7 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 
 * **NUEVO** - Se han modificado los iconos representativos del clima por unos svg personalizados de aspecto más agradable.
 
-* **NUEVO** - Se han tenido en cuenta las apariencias por defecto del navegador Safari, para conseguir un estilo concurrente en cualquier dispositivo.
+* **NUEVO** - Se han tenido en cuenta las apariencias por defecto del navegador Safari, desactivandolas para conseguir un estilo concurrente en cualquier dispositivo.
 
 * Aplicación en producción y bajo un subdominio propio.
 
@@ -51,7 +51,9 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 
 * Vitest + Testing-Library: Al hacer uso del comando npm test, se ejecutarán varios test que comprobarán el renderizado correcto y las interacciones del usuario.
 
-* Sweet Alerta 2: Se ha incluido esta librería para ofrecer alertas más agradables y consistentes con el estilo de la aplicación.
+* Sweet Alert 2: Se ha incluido esta librería para ofrecer alertas más agradables y consistentes con el estilo de la aplicación.
+
+* Eslint Airbnb: Se ha cambiado el linter de la aplicación de *Standard* a *Airbnb*, ofreciendo una sintaxis más estricta y accesible.
 
 * Toda la aplicación ha sido refactorizada siguiendo los principios SOLID.
 
