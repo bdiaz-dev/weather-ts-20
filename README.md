@@ -19,7 +19,7 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 
 * **NUEVO** - En la barra lateral se encuentra también el botón que abrirá un modal con el formulario de contacto.
 
-* El formulario tendrá por defecto el botón "Send" deshabilitado hasta rellenar todos los campos. Una vez se envíe, primero se comprobará que el correo y el teléfono sean correctos (si no lo son se mostrará una alerta), si es así se mostrará una consulta al usuario preguntando si toda la información está correcta, si se confirma se mostrará una alerta indicando que el propietario de la aplicación se pondrá en contacto lo antes posible.
+* El formulario tendrá por defecto el botón "Send" deshabilitado hasta rellenar todos los campos. Una vez se envíe, primero se comprobará que el correo y el teléfono sean correctos (si no lo son se mostrará una alerta), si es así se mostrará una consulta al usuario preguntando si toda la información es correcta, si se confirma se mostrará una alerta indicando que el propietario de la aplicación se pondrá en contacto lo antes posible.
 
 ## Extras
 
@@ -39,7 +39,7 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 
 * **NUEVO** - Se han modificado los iconos representativos del clima por unos svg personalizados de aspecto más agradable.
 
-* **NUEVO** - Se han tenido en cuenta las apariencias por defecto del navegador Safari, desactivandolas para conseguir un estilo concurrente en cualquier dispositivo.
+* **NUEVO** - Se han tenido en cuenta las apariencias por defecto del navegador Safari, desactivándolas para conseguir un estilo concurrente en cualquier dispositivo.
 
 * Aplicación en producción con Vercel y bajo un subdominio propio.
 
@@ -59,7 +59,7 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 
 * Toda la aplicación ha sido refactorizada siguiendo los principios SOLID.
 
-* Los datos usados en el uso de la Api de Openweathermap, están declarado en un archivo de variables de entorno locales. Evitando su publicación en el repositorio.
+* Los datos usados en el uso de la Api de Openweathermap, están declarados en un archivo de variables de entorno locales. Evitando su publicación en el repositorio.
 
 * Se han creado contextos para hacer uso de estados globales y evitar el "prop drilling"
 
