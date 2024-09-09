@@ -41,9 +41,11 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 
 * **NUEVO** - Se han tenido en cuenta las apariencias por defecto del navegador Safari, desactivandolas para conseguir un estilo concurrente en cualquier dispositivo.
 
-* Aplicación en producción y bajo un subdominio propio.
+* Aplicación en producción con Vercel y bajo un subdominio propio.
 
 ## **NUEVO** - Nuevas herramientas y refactorizado
+
+* Vite: La aplicación está desarrollada bajo el entorno vite, ofreciendo un funcionamiento óptimo y desarrollo acelerado. Aprovechando la integración con typescript y vitest.
 
 * Typescript: Toda la aplicación está escrita en este lenguaje y la mayoría de tipos e interfaces están declaradas en archivos .d.ts
 
@@ -56,6 +58,8 @@ Se conecta con la API de [openweathermap.org](https://openweathermap.org) para d
 * Eslint Airbnb: Se ha cambiado el linter de la aplicación de *Standard* a *Airbnb*, ofreciendo una sintaxis más estricta y accesible.
 
 * Toda la aplicación ha sido refactorizada siguiendo los principios SOLID.
+
+* Los datos usados en el uso de la Api de Openweathermap, están declarado en un archivo de variables de entorno locales. Evitando su publicación en el repositorio.
 
 * Se han creado contextos para hacer uso de estados globales y evitar el "prop drilling"
 
