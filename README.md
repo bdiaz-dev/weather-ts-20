@@ -1,6 +1,6 @@
 # Weather App 2.0
 
-[Visitar proyecto en producción](https://weatherapp.brunodiaz.es)
+[Visitar proyecto en producción](https://weatherapp2.brunodiaz.es)
 
 Aplicación React de consulta del clima hecha para la prueba técnica nº2.
 
