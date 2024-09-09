@@ -5,7 +5,6 @@ import { useCity } from '@context/CityContext';
 import { cities } from '@libs/cities';
 import { useMenu } from '@context/MenuContext';
 
-// interface CitiesParams { closeMenu: VoidFunction }
 export default function Cities() {
   const { city: selectedCity, setCity } = useCity();
   const { lang } = useLanguage();

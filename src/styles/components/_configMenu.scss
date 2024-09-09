@@ -55,9 +55,8 @@
     line-height: 1;
     @include flexConfig(column, end, center, 10px);
     position: absolute;
-    right: 10px;
-    top: 70px;
-    width: 120px;
+    inset: 70px 10px auto auto;
+    width: max-content;
     transition: opacity 0.9s ease;
 
     p {

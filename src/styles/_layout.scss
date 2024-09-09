@@ -38,25 +38,18 @@ main {
 header {
   backdrop-filter: blur(20px);
   z-index: 1002;
-  // background-color: $nav-background-color-dark;
   position: fixed;
   top: 0;
   width: 100dvw;
-  // height: max-content;
   height: 63px;
   text-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexConfig();
 }
 
 nav {
-  // background-color: $nav-background-color-dark;
   backdrop-filter: blur(20px);
   grid-column: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include flexConfig(column, stretch);
   height: 100dvh;
   position: fixed;
   top: 63px;
@@ -69,11 +62,7 @@ article {
   margin: auto;
   margin-top: 90px;
   grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  @include flexConfig(column, center, center, 20px);
   max-width: calc(100dvw - 200px);
 }
 

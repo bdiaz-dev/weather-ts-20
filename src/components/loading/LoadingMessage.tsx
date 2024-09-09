@@ -9,11 +9,10 @@ export default function LoadingMessage({ setIsFirstLoad }: LoadingMessageParams)
   return (
     <div
       id="loadingMessage"
-    // style={{ padding: '10px', margin: 'auto' }}
     >
       <div>
         <h1>Loading</h1>
-        <img src="/assets/loading/loading.svg" alt="" />
+        <img src="/assets/loading/loading.svg" alt="loading animation" />
       </div>
     </div>
   );

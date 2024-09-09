@@ -19,16 +19,12 @@
 #menuButton {
   padding: 0;
   position: fixed;
-  top: 20px;
-  left: 20px;
+  inset: 20px auto auto 20px;
   width: 40px;
   height: 25px;
   background: transparent;
   border: none;
   display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   cursor: pointer;
   z-index: 1003;
 
@@ -57,7 +53,7 @@
 
 @include media-query-first-breakpoint {
   #menuButton {
-    display: flex;
+    @include flexConfig(column, center, space-around);
   }
 
 }

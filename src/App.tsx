@@ -114,7 +114,7 @@ function App() {
 
           {/* Forecast weather */}
           {
-            forecastData && !forecastError // && !forecastLoading
+            forecastData && !forecastError
             && (
               <section>
                 <Forecast

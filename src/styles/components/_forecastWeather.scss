@@ -1,4 +1,4 @@
-// MIXINS THEMES
+// THEMES
 
 @mixin forecastWeather-theme ($theme: 'dark') {
   $is-dark: if($theme == 'dark', true, false);
@@ -37,8 +37,7 @@
     margin: 0 auto;
     padding: 0;
     list-style: none;
-    display: flex;
-    gap: 15px;
+    @include flexConfig(row, center, start, 15px);
     overflow-x: scroll;
     max-width: 90%;
     flex-shrink: 1;

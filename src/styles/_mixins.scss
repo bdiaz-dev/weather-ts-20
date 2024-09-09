@@ -74,11 +74,6 @@
   @include transition(all);
 }
 
-// @mixin media-query($breakpoint) {
-//   @media (max-width: $breakpoint) {
-//     @content;
-//   }
-// }
 @mixin media-query-first-breakpoint {
   @media (max-width: 1100px) {
     @content;

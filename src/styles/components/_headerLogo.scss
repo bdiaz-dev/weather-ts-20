@@ -1,12 +1,9 @@
 #headerLogo {
   position: relative;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  @include flexConfig(row, center, center, 10px);
   font-style: italic;
-  text-decoration: underline blue;
+  text-decoration: underline #3d3dff;
   img {
     width: 50px;
   }

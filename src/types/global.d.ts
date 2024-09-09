@@ -24,10 +24,6 @@ interface UseStateMenuContext {
   setIsMenu: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-// interface VoidFunction {
-//   (data: void): void;
-// }
-
 interface FetchParams {
   city: string,
   lang: string,

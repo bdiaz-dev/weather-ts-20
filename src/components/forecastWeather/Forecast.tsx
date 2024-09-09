@@ -28,6 +28,7 @@ export default function Forecast({ forecastData, setForecastDetails }: ForecastP
             whileHover={{ scale: 0.95 }}
             whileTap={{ scale: 0.9 }}
             data-testid="forecastElement"
+            tabIndex={0}
           >
             <div>
               <b>{item.date}</b>

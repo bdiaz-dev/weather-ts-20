@@ -1,4 +1,4 @@
-// MIXINS THEMES
+// THEMES
 
 @mixin swal2-theme ($theme: 'dark') {
   $is-dark: if($theme == 'dark', true, false);

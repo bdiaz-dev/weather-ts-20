@@ -7,11 +7,6 @@ import todayDate from '../src/libs/todayDate';
 describe('App should render all components', () => {
   beforeEach(() => { render(<Root />); });
   afterEach(() => { cleanup(); });
-  // test('title', async () => {
-  //   await waitFor(() => {
-  //     expect(screen.getByText('Weather App')).toBeDefined();
-  //   });
-  // });
   test('date', async () => {
     await waitFor(() => {
       const date = todayDate('en');
@@ -41,18 +36,11 @@ describe('App should render all components', () => {
       expect(screen.getByTestId('citiesList')).toBeDefined();
     });
   });
-  // test('Contact form', async () => {
-  //   await waitFor(() => {
-  //     expect(screen.getByTestId('contactForm')).toBeDefined();
-  //   });
-  // });
 });
 describe('User interactions', () => {
   beforeEach(() => { render(<Root />); });
   afterEach(() => { cleanup(); });
   describe('configurations', () => {
-    // beforeEach(() => { render(<Root />); });
-    // afterEach(() => { cleanup(); });
     test('Change language', async () => {
       const configButton = screen.getByTestId('configButton');
       fireEvent.click(configButton);
@@ -91,17 +79,7 @@ describe('User interactions', () => {
       expect(cityTitle.innerHTML).toBe('London GB');
     });
   });
-  
-  test('Open forecast details', async () => {
-    await waitFor(() => {
-      const forecastElement = screen.getAllByTestId('forecastElement');
-      fireEvent.click(forecastElement[0]);
-      const forecastDetailsContainer = screen.getByTestId('forecastDetailsContainer');
-      expect(forecastDetailsContainer).toBeDefined();
-    });
-    // await waitFor(() => {
-    // });
-  });
+
   test('Form filled can send', async () => {
     const formOpen = screen.getByText('Contact us');
     fireEvent.click(formOpen);

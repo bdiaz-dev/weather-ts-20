@@ -19,7 +19,7 @@ const useForecastWeather = ({ city, lang }: FetchParams) => {
         date: dateFix({ dt: el.dt_txt.substring(0, 10), lang }),
         largeDate: el.dt_txt.substring(0, 10),
         hour: el.dt_txt.substring(11, 16),
-        icon: `/assets/weather/${el.weather[0].icon}.svg`, // `${import.meta.env.VITE_ICONS_URL_BASE}${el.weather[0].icon}.png`,
+        icon: `/assets/weather/${el.weather[0].icon}.svg`,
         description: el.weather[0].description,
         cityFetch: forecastWeatherData.city.name,
         temp: ` ${Math.round(el.main.temp)}º`,
